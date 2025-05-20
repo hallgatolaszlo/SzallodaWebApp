@@ -1,14 +1,21 @@
 import './css/App.css';
-import Header from './components/Header.jsx';
-import Land from "./components/Land.jsx";
+import Home from './pages/Home.jsx';
+import Login from "./pages/Login.jsx";
+import Booking from "./pages/Booking.jsx";
+import Admin from "./pages/Admin.jsx";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
 
     return (
-        <>
-            <Land/>
-            <Header/>
-        </>
+        <main>
+            <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/booking" element={<Booking/>}></Route>
+                <Route path="/admin" element={<Admin />}></Route>
+            </Routes>
+        </main>
     );
 }
 
