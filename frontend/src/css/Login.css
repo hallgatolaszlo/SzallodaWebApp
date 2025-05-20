@@ -1,3 +1,14 @@
 body {
     background: var(--color4);
 }
+
+main {
+    height: 100vh;
+}
+
+.form-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}

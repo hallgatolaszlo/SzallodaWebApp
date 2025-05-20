@@ -1,8 +1,20 @@
 .form-block {
     border: 1px solid #fff0d3;
-    width: 300px;
-    height: 300px;
+    width: 40%;
+    height: 40%;
     background: var(--color1);
     border-radius: 5%;
-    margin: 25%;
+}
+
+.input-field {
+    display: flex;
+    margin: 10%;
+    width: fit-content;
+    flex-direction: column;
+}
+
+.ext-field {
+    display: flex;
+    margin: 10%;
+    top: 60%;
 }
