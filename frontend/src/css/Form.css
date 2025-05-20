@@ -1,0 +1,8 @@
+.form-block {
+    border: 1px solid #fff0d3;
+    width: 300px;
+    height: 300px;
+    background: var(--color1);
+    border-radius: 5%;
+    margin: 25%;
+}
