@@ -6,6 +6,6 @@ export function getEndpoints() {
 }
 
 export async function getFromAPI(endpoint) {
-    const RESPONSE = await fetch(`${BASE_URL}${endpoint}`);
-    return RESPONSE.json();
+    const response = await fetch(`${BASE_URL}${endpoint}`);
+    return response.json();
 }

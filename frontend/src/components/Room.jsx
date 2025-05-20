@@ -1,6 +1,8 @@
-function Room() {
+function Room(roomData) {
     return (
-        <div></div>
+        <div className="room-container">
+            <p className="room-name">{roomData.name}</p>
+        </div>
     );
 }
 
