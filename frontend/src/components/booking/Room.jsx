@@ -1,7 +1,7 @@
 import "../../css/booking/Room.css";
 
 function Room({room}) {
-    const {id, name, price, capacity, image} = room;
+    const {name, price, capacity, image} = room;
     return (
         <div className="room-container">
             <div className="room-title-bar">
