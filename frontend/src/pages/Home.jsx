@@ -1,11 +1,23 @@
-import Header from '../components/Header.jsx';
 import Land from "../components/Land.jsx";
 
 function Home() {
 
     return (
-        <div>
-        </div>
+        <>
+            <Land/>
+            <div>
+                <h1>Home Page</h1>
+            </div>
+            <div>
+                <h1>Home Page</h1>
+            </div>
+            <div>
+                <h1>Home Page</h1>
+            </div>
+            <div>
+                <h1>Home Page</h1>
+            </div>
+        </>
     );
 }
 
