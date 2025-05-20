@@ -5,8 +5,6 @@ function Home() {
 
     return (
         <div>
-            <Land/>
-            <Header/>
         </div>
     );
 }
