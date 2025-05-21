@@ -1,0 +1,8 @@
+.reg-form-inputs {
+    border: 5px solid #fff0d3;
+    width: 40%;
+    height: 40%;
+    background: var(--color1);
+    border-radius: 5%;
+    box-shadow: 0 1px 50px rgba(1,1,1,1);
+}

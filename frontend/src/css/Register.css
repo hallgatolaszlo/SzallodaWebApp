@@ -12,7 +12,7 @@ main {
     height: 100vh;
 }
 
-.form-block {
+.reg-form-inputs {
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,5 +1,8 @@
+import "../css/Register.css"
+import RegForm  from "../components/register/RegForm.jsx";
+
 function Register() {
-    return <div>No register page yet.</div>;
+    return <RegForm />;
 }
 
 export default Register;
