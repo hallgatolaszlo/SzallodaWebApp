@@ -65,3 +65,9 @@ footer {
 .line-icon {
     color: var(--deeper-gold);
 }
+
+
+.footer-links {
+    text-decoration: none;
+    color: var(--white);
+}
