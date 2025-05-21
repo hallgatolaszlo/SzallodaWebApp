@@ -1,7 +1,3 @@
-body {
-    background: var(--color4);
-}
-
 .rooms-grid {
     position: relative;
     display: flex;

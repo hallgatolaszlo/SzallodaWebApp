@@ -1,6 +1,6 @@
 import '../../css/Form.css';
 import {Link} from 'react-router-dom';
-import atlantis from '../../img/atlantis.jpg';
+import atlantis from '../../assets/img/atlantis.jpg';
 
 function Form() {
     return (
@@ -12,7 +12,7 @@ function Form() {
                 <br/>
                 <p>Password</p>
                 <input className="input-password" type="password" placeholder="Type your password here..."/>
-                <button className="login-button"> Log in </button>
+                <button className="login-button"> Log in</button>
             </div>
 
             <div className="ext-field">
@@ -21,7 +21,7 @@ function Form() {
             </div>
 
             <div className="img-field">
-                <img src={atlantis} className="img-field-img" alt="Hotel Atlantis" />
+                <img src={atlantis} className="img-field-img" alt="Hotel Atlantis"/>
             </div>
 
         </div>
