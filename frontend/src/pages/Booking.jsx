@@ -29,7 +29,9 @@ function Booking() {
         const filteredRooms = [];
         for (const room of rooms) {
             for (const booking of bookings) {
-                if (room.id !== booking.roomId) continue;
+                if (Number(room.id) !== Number(booking.roomId)) {
+                    continue;
+                }
                 if ((new Date(booking.startDate) <= startDate && new Date(booking.endDate) <= startDate) || (new Date(booking.startDate) >= endDate && new Date(booking.endDate) >= endDate)) {
                     filteredRooms.push(room);
                 }
@@ -39,7 +41,7 @@ function Booking() {
     }
 
     return (
-        <div>
+        <div className="booking-container">
             <form>
                 <input name="start-date" defaultValue={defaultDate.toISOString().split('T')[0]} type="date"
                        onChange={(e) => setStartDate(new Date(e.target.value))}/>

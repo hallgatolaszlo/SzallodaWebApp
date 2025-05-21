@@ -1,5 +1,6 @@
-body {
-    background: var(--color4);
+.booking-container {
+    position: relative;
+    margin-top: 200px;
 }
 
 .rooms-grid {
@@ -9,3 +10,4 @@ body {
     width: 80vw;
     height: fit-content;
 }
+
