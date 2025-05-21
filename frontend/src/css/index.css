@@ -1,12 +1,15 @@
-:root{
+:root {
     --color1: #132434;
     --color2: #226383;
     --color3: #fac291;
     --color4: #95c2e3;
     --color5: #fff0d3;
+    --white: #fff;
+    --vibrant-gold: #ffd700;
+    --deeper-gold: #f5bf03
 }
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }

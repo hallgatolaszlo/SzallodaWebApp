@@ -15,18 +15,21 @@ function Navbar() {
     };
 
     /*header fading*/
+    const logoRef = useRef();
     const headerRef = useRef();
     const [isScrolled, setIsScrolled] = useState(false);
 
     const handleScroll = () => {
         const currentScrollPos = window.scrollY;
 
-        if (currentScrollPos > 100) {
+        if (currentScrollPos > 50) {
             setIsScrolled(true);
             headerRef.current.classList.add("change-background");
+            logoRef.current.classList.add("logo-disappear");
         } else {
             setIsScrolled(false);
             headerRef.current.classList.remove("change-background");
+            logoRef.current.classList.remove("logo-disappear");
         }
     };
 
@@ -41,7 +44,7 @@ function Navbar() {
         <header ref={headerRef}>
             <div className="navbar-brand flexbox-item">
                 <div>
-                    <FaHotel className="hotel-icon"/>
+                    <FaHotel className="hotel-icon" ref={logoRef}/>
                     <h1>Hotel Atlantis</h1>
                 </div>
 

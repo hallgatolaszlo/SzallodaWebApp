@@ -11,6 +11,10 @@ header {
     transition: all 0.5s ease-in-out;
 }
 
+.logo-disappear {
+    display: none;
+}
+
 .change-background {
     background: white;
 }
@@ -68,14 +72,14 @@ header .flexbox-item:first-child {
     }
 
     .nav-btn-close {
-        color: var(--color5);
+        color: var(--deeper-gold);
         position: absolute;
         top: 2rem;
         right: 3rem;
     }
 
     .nav-link {
-        color: var(--color5);
+        color: var(--color1);
     }
 
     header .navbar {
@@ -85,7 +89,7 @@ header .flexbox-item:first-child {
         left: 0;
         height: 100%;
         width: 100%;
-        background: var(--color1);
+        background: var(--white);
         gap: 1.5rem;
         transition: 0.5s ease-in-out;
         transform: translateY(-100vh);
