@@ -1,7 +1,10 @@
+import Form from "../components/login/Form.jsx";
+import '../css/Login.css'
+
 function Login(){
-    return <div>
-        <h1>No login page yet</h1>
-    </div>
+    return (
+        <Form />
+    )
 }
 
 export default Login;
