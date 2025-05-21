@@ -1,0 +1,37 @@
+.room-container {
+    position: relative;
+    background-color: var(--color5);
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template:
+    [header-left] "head head" 1fr [header-right]
+    [main-left] "img main" 5fr [main-right]
+    / 1fr 2fr;
+}
+
+.room-title-bar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color3);
+    grid-area: head;
+}
+
+.room-name {
+    font-weight: bold;
+}
+
+.room-image {
+    width: 100%;
+    border-right: 1px solid var(--color1);
+    grid-area: img;
+}
+
+.room-main {
+    grid-area: main;
+}
+
+p {
+    width: fit-content;
+}
