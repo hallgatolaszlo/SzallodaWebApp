@@ -1,4 +1,4 @@
-import atlantis from '../img/atlantis.jpg';
+import atlantis from '../assets/img/atlantis.jpg';
 import '../css/Land.css';
 
 function Land() {
