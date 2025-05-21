@@ -60,29 +60,29 @@
       "id": 12,
       "roomId": 1,
       "guestId": 5,
-      "startDate": "2025-07-01",
-      "endDate": "2025-07-04"
+      "start": "2025-07-01",
+      "end": "2025-07-04"
     },
     {
       "id": 13,
       "roomId": 3,
       "guestId": 6,
-      "startDate": "2025-08-10",
-      "endDate": "2025-08-15"
+      "start": "2025-08-10",
+      "end": "2025-08-15"
     },
     {
       "id": 14,
       "roomId": 2,
       "guestId": 7,
-      "startDate": "2025-07-20",
-      "endDate": "2025-07-22"
+      "start": "2025-07-20",
+      "end": "2025-07-22"
     },
     {
       "id": 15,
       "roomId": 4,
       "guestId": 8,
-      "startDate": "2025-09-05",
-      "endDate": "2025-09-06"
+      "start": "2025-09-05",
+      "end": "2025-09-06"
     }
   ]
 }
