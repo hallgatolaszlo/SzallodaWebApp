@@ -61,3 +61,7 @@ footer {
         border: 1px solid var(--deeper-gold);
     }
 }
+
+.line-icon {
+    color: var(--deeper-gold);
+}
