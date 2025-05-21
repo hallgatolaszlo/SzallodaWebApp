@@ -59,7 +59,7 @@ function Navbar() {
                     {isNavVisible === true ?
                         (<div className="nav-link-log-group">
                             <Link to="/login" className="nav-link">Login</Link>
-                            <Link to="/login" className="nav-link">Sign Up</Link>
+                            <Link to="/register" className="nav-link">Sign Up</Link>
                         </div>) : (
                             <div className="nav-link dropdown">
                                 <button className="nav-link-btn">
@@ -67,7 +67,7 @@ function Navbar() {
                                 </button>
                                 <div className="dropdown-content">
                                     <Link to="/login" className="nav-link">Login</Link>
-                                    <Link to="/login" className="nav-link">Sign Up</Link>
+                                    <Link to="/register" className="nav-link">Sign Up</Link>
                                 </div>
                             </div>)}
                 </div>

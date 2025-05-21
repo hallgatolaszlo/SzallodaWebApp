@@ -1,4 +1,5 @@
 import Land from "../components/Land.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Home() {
 
@@ -17,6 +18,8 @@ function Home() {
             <div>
                 <h1>Home Page</h1>
             </div>
+
+            <Footer/>
         </>
     );
 }
