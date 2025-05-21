@@ -1,0 +1,11 @@
+body {
+    background: var(--color4);
+}
+
+.rooms-grid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: fit-content;
+}
