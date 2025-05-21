@@ -1,3 +1,8 @@
+.booking-container {
+    position: relative;
+    margin-top: 200px;
+}
+
 .rooms-grid {
     position: relative;
     display: flex;
