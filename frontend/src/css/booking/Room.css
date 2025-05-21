@@ -31,7 +31,3 @@
 .room-main {
     grid-area: main;
 }
-
-p {
-    width: fit-content;
-}
