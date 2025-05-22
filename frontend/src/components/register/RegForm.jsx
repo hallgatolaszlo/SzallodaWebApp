@@ -1,6 +1,25 @@
 import '../../css/register/RegForm.css'
+import {getFromAPI, postAccounts} from "../../services/api.js";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 
 function RegForm() {
+    const [accounts, setAccounts] = useState(null);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        async function fetchAccounts() {
+            return await getFromAPI("accounts");
+        }
+
+
+        fetchAccounts().then(data => setAccounts(data));
+    }, []);
+
     return (
         <div className="login-register-container">
             <div className="reg-form-inputs">
@@ -8,8 +27,6 @@ function RegForm() {
                 <div className="reg-form-block-header">
                     <p>Username</p>
                     <input placeholder="New username..."></input>
-                    <p>E-mail</p>
-                    <input type="email" placeholder="Email..."></input>
                     <p>Password</p>
                     <input type="password" placeholder="Password..."></input>
                     <p>Confirm password</p>

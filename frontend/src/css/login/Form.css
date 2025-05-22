@@ -60,13 +60,14 @@
     height: 2em;
     color: var(--color1);
     border: 2px solid var(--color1);
+    padding-left: 8px;
 }
 
 .input-password {
     height: 2em;
     color: var(--color1);
     border: 2px solid var(--color1);
-
+    padding-left: 8px;
 }
 
 .sign-up-link {

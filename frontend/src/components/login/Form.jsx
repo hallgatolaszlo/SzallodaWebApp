@@ -1,11 +1,13 @@
 import {useEffect, useState} from "react";
 import {getFromAPI} from "../../services/api.js";
 import '../../css/login/Form.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Form() {
     const [accounts, setAccounts] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -14,16 +16,18 @@ function Form() {
         }
 
 
-        fetchAccounts().then(data => setAccounts(data)).then(() => setLoading(false));
+        fetchAccounts().then(data => setAccounts(data));
     }, []);
 
 
     function checkAccounts() {
 
-        console.log(accounts);
-        if (loading) {
-            setLoading(true);
-        }
+
+        accounts.forEach((account) => {
+            if (account.username === username && account.password === password) {
+                navigate("/", {replace: true});
+            }
+        })
 
     }
 
@@ -35,11 +39,20 @@ function Form() {
 
             <div className="input-field">
                 <p>Username</p>
-                <input className="input-username" placeholder="Type your username here..."/>
+                <input className="input-username"
+                       value={username}
+                       placeholder="Type your username here..."
+                       onChange={(e) => setUsername(e.target.value)}
+                />
                 <br/>
                 <p>Password</p>
-                <input className="input-password" type="password" placeholder="Type your password here..."/>
-                <button className="login-button" onClick={checkAccounts}> Log in</button>
+                <input className="input-password"
+                       value={password}
+                       placeholder="Type your password here..."
+                       type="password"
+                       onChange={(e) => setPassword(e.target.value)}
+                />
+                <button className="login-button" onClick={checkAccounts}>Log in</button>
             </div>
 
             <div className="ext-field">
