@@ -25,6 +25,8 @@ function Form() {
 
         accounts.forEach((account) => {
             if (account.username === username && account.password === password) {
+                sessionStorage.setItem("username", username);
+                sessionStorage.setItem("accountId", account.id);
                 navigate("/", {replace: true});
             }
         })

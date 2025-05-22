@@ -127,6 +127,11 @@
       "username": "admin",
       "password": "admin",
       "id": "6266"
+    },
+    {
+      "id": "63ad",
+      "username": "annakovacs",
+      "password": "annakovacs"
     }
   ]
 }
