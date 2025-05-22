@@ -1,0 +1,29 @@
+.land-image-container {
+    width: 100vw;
+    height: 100vh;
+    justify-items: center;
+}
+
+.land-image {
+    display: block;
+    width: 1920px;
+    height: 100%;
+    overflow: hidden;
+    filter: brightness(80%);
+}
+
+.image-text-container {
+    width: 50%;
+    min-width: 300px;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+}
+
+.image-text {
+    font-size: 30pt;
+    color: var(--color5);
+    font-family: var(--title-font), serif;
+    text-align: center;
+    text-shadow: 1px 1px var(--color1);
+}
