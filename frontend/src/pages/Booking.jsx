@@ -64,8 +64,7 @@ function Booking() {
             <div className="rooms-grid">
                 {loadingRooms || loadingBookings
                     ? "Loading..."
-                    : filterRooms().map(room => <Room room={room} startDate={startDate} endDate={endDate}
-                                                      key={room.id}/>)
+                    : filterRooms().map(room => <Room room={room} key={room.id}/>)
                 }
             </div>
             <div>
