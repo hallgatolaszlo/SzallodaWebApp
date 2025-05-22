@@ -1,12 +1,36 @@
 .booking-container {
     position: relative;
     margin-top: 200px;
+    font-family: Arial, sans-serif;
 }
 
 .rooms-grid {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
+    width: 98vw;
     height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.booking-query-container {
+    position: relative;
+    width: 98vw;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.datepicker-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.datepicker-container > label {
+    width: fit-content;
 }
