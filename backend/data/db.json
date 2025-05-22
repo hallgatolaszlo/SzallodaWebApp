@@ -3,53 +3,137 @@
     {
       "id": 1,
       "name": "Deluxe Twin Room",
-      "price": 25000,
+      "price": 2000,
       "capacity": 2,
       "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": 2,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 5,
       "name": "Superior Double Room",
-      "price": 30000,
+      "price": 2500,
       "capacity": 2,
       "image": "src/assets/img/rooms/superior-double-room.jpg"
     },
     {
-      "id": 3,
+      "id": 6,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 9,
       "name": "Family Suite",
-      "price": 50000,
+      "price": 4000,
       "capacity": 4,
       "image": "src/assets/img/rooms/family-suite.jpg"
     },
     {
-      "id": 4,
+      "id": 10,
+      "name": "Family Suite",
+      "price": 4000,
+      "capacity": 4,
+      "image": "src/assets/img/rooms/family-suite.jpg"
+    },
+    {
+      "id": 11,
       "name": "Single Economy Room",
-      "price": 15000,
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Single Economy Room",
+      "price": 500,
       "capacity": 1,
       "image": "src/assets/img/rooms/single-economy-room.jpg"
     }
   ],
   "guests": [
     {
-      "id": 5,
+      "id": 1,
       "name": "Anna Kovács",
       "email": "anna@example.com",
       "phone": "+36201234567"
     },
     {
-      "id": 6,
+      "id": 2,
       "name": "Béla Nagy",
       "email": "bela.nagy@example.com",
       "phone": "+36207654321"
     },
     {
-      "id": 7,
+      "id": 3,
       "name": "Csilla Szabó",
       "email": "csilla.szabo@example.com",
       "phone": "+36203332211"
     },
     {
-      "id": 8,
+      "id": 4,
       "name": "Dániel Horváth",
       "email": "daniel.horvath@example.com",
       "phone": "+36205556677"
@@ -57,30 +141,34 @@
   ],
   "bookings": [
     {
-      "id": 12,
+      "id": 1,
       "roomId": 1,
-      "guestId": 5,
+      "guestId": 1,
+      "guestCount": 2,
       "start": "2025-07-01",
       "end": "2025-07-04"
     },
     {
-      "id": 13,
-      "roomId": 3,
-      "guestId": 6,
+      "id": 2,
+      "roomId": 5,
+      "guestId": 2,
+      "guestCount": 2,
       "start": "2025-08-10",
       "end": "2025-08-15"
     },
     {
-      "id": 14,
-      "roomId": 2,
-      "guestId": 7,
+      "id": 3,
+      "roomId": 9,
+      "guestId": 3,
+      "guestCount": 4,
       "start": "2025-07-20",
       "end": "2025-07-22"
     },
     {
-      "id": 15,
-      "roomId": 4,
-      "guestId": 8,
+      "id": 4,
+      "roomId": 11,
+      "guestId": 4,
+      "guestCount": 1,
       "start": "2025-09-05",
       "end": "2025-09-06"
     }

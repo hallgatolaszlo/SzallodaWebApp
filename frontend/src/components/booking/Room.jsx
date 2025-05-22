@@ -1,16 +1,21 @@
 import "../../css/booking/Room.css";
-import React, {useState} from "react";
+import {useState, createElement, useEffect} from "react";
+import _ from "lodash";
+import {useRoomsAndBookingsContext} from "../../contexts/RoomsAndBookingsContext.jsx";
 
-function Room({room}) {
-    const priceChangePerPerson = 1000;
+function Room({room, availableRooms}) {
+    const {rooms} = useRoomsAndBookingsContext();
+
     const {name, price, capacity, image} = room;
-    const [numberOfGuests, setNumberOfGuests] = useState(1);
-    const fullPrice = price + (numberOfGuests - 1) * priceChangePerPerson;
+    const [numberOfRooms, setNumberOfRooms] = useState(0);
+    const [fullPrice, setFullPrice] = useState(0);
 
-    let options = [];
-    for (let i = 1; i <= capacity; i++) {
-        options.push(i.toString());
-    }
+    useEffect(() => {
+        setFullPrice(price * numberOfRooms);
+    }, [numberOfRooms]);
+
+    const allOfThisType = rooms.filter(room => room.name === name);
+    const availableOfThisType = availableRooms.filter(room => room.name === name);
 
     return (
         <div className="room-container">
@@ -23,13 +28,17 @@ function Room({room}) {
                 <p className="room-price">{"$" + new Intl.NumberFormat("US-us").format(fullPrice)}</p>
             </div>
             <div className="room-main">
-                <div className="room-number-of-guests-container">
-                    <p>{"Number of Guests:"}</p>
-                    {options.length > 1 ? <select onChange={(e) => {
-                        setNumberOfGuests(Number(e.target.value));
-                    }} className="room-number-of-guests-select">
-                        {options.map(option => React.createElement("option", {key: option[0]}, option))}
-                    </select> : React.createElement("p", {}, "1")}
+                <div className="room-number-of-rooms-container">
+                    <p>{"Number of Rooms: "}</p>
+                    <select className="room-number-of-rooms-select"
+                            onChange={(e) => setNumberOfRooms(Number(e.target.value))}>
+                        {_.range(0, allOfThisType.length + 1).map(number => number > availableOfThisType.length ? createElement("option", {
+                            key: number,
+                            disabled: true,
+                        }, number) : createElement("option", {
+                            key: number,
+                        }, number))}
+                    </select>
                 </div>
             </div>
         </div>

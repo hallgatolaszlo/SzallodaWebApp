@@ -28,9 +28,20 @@
     grid-area: head;
 }
 
+.room-title-bar > p:nth-child(1) {
+    padding-top: 10px;
+    font-family: var(--title-font), serif;
+}
+
+.room-title-bar > p:nth-child(2) {
+    padding-bottom: 10px;
+    font-family: var(--title-font), serif;
+}
+
 .room-name {
     font-weight: bold;
     font-size: 1.2rem;
+
 }
 
 .room-image-container {
@@ -45,7 +56,6 @@
 }
 
 .room-image {
-    aspect-ratio: 1 / 1;
     width: 100%;
     border: 2px solid var(--color1);
     border-top: none;
@@ -59,7 +69,7 @@
     grid-area: main;
 }
 
-.room-number-of-guests-container {
+.room-number-of-rooms-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
