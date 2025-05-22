@@ -1,6 +1,5 @@
-.reg-form-inputs {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
 }
