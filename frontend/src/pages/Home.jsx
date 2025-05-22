@@ -1,7 +1,7 @@
 import HomeImage from "../components/home/HomeImage.jsx";
 import Footer from "../components/Footer.jsx";
 import RatingCards from "../components/home/RatingCards.jsx";
-import {getRatingsFromAPI} from "../services/ratingAPI.js";
+import {getFromAPI} from "../services/api.js";
 import {useEffect, useState} from "react";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
 
     useEffect(() => {
         async function fetchRatings() {
-            return await getRatingsFromAPI();
+            return await getFromAPI("ratings");
         }
 
         fetchRatings().then(data => setRatings(data)).then(() => setLoading(false));
