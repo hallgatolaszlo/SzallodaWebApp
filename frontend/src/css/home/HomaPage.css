@@ -1,0 +1,30 @@
+.media-scroller {
+    display: grid;
+    gap: 2rem;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    height: 200px;
+}
+
+.media-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.btn {
+    position: absolute;
+    height: 200px;
+    align-content: center;
+    width: 30px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-right {
+    right: 0;
+}
