@@ -57,7 +57,7 @@ function Navbar() {
     function RenderResponsive() {
         if (isNavVisible === true) { //on small screen;
             const linkElements = [];
-            if (JSON.parse(window.sessionStorage.getItem("accountData")).role.length > 0) {
+            if (JSON.parse(window.sessionStorage.getItem("accountData"))) {
                 linkElements.push(RenderLog());
             } else {
                 linkElements.push(
@@ -70,19 +70,22 @@ function Navbar() {
             );
         } else { //on large screen;
             const divElements = [];
-            if (JSON.parse(window.sessionStorage.getItem("accountData")).role.length > 0) {
+            if (JSON.parse(window.sessionStorage.getItem("accountData"))) {
                 divElements.push(RenderLog());
             } else {
+                const links = [
+                    createElement(Link, {to: "/login", className: "nav-link"}, "Login"),
+                    createElement(Link, {to: "/register", className: "nav-link"}, "Sign Up"),
+                ];
                 divElements.push(
                     createElement("button", {className: "nav-link-btn"},
                         createElement(FaRegUserCircle, {className: "nav-link-icon"})
                     ),
-                    createElement(Link, {to: "/login", className: "nav-link"}, "Login"),
-                    createElement(Link, {to: "/register", className: "nav-link"}, "Sign Up"),
+                    createElement("div", {className: "dropdown-content"}, links)
                 );
             }
             return (
-                createElement("div", {className: "nav-link-log-group"}, divElements)
+                createElement("div", {className: "nav-link-group-on-large-screen"}, divElements)
             );
         }
     }
@@ -115,3 +118,9 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+/*<div className="dropdown-content">
+                                    <Link to="/login" className="nav-link">Login</Link>
+                                    <Link to="/register" className="nav-link">Sign Up</Link>
+                                </div>*/

@@ -45,7 +45,7 @@ header .flexbox-item:first-child {
     justify-content: space-evenly;
 }
 
-.nav-link {
+.nav-link, .nav-link-group-on-large-screen {
     padding: 10px 40px;
     text-decoration: none;
     color: var(--color1);
@@ -55,6 +55,10 @@ header .flexbox-item:first-child {
 .nav-link:hover {
     background-color: rgba(34, 99, 131, 0.5);
     color: var(--color5);
+}
+
+.nav-link-group-on-large-screen {
+    display: inline;
 }
 
 .nav-btn {
