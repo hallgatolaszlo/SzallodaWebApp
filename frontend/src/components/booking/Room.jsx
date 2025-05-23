@@ -77,7 +77,7 @@ function Room({room}) {
         <div className="room-container">
             <div className="room-title-bar">
                 <p className="room-name">{name}</p>
-                <p className="room-capacity">{"For maximum " + capacity + " people"}</p>
+                <p className="room-capacity">{capacity > 1 ? "For maximum " + capacity + " people" : "For maximum " + capacity + " person"}</p>
             </div>
             <div className="room-image-container">
                 <img className="room-image" src={image} alt={"Picture of " + name}/>
@@ -99,7 +99,8 @@ function Room({room}) {
                                 key: number,
                             }, number))}
                     </select>
-                    <span>{"+ $" + new Intl.NumberFormat("US-us").format(numberOfRooms * price)}</span>
+                    {numberOfRooms === 0 ? "" :
+                        <span>{"+ $" + new Intl.NumberFormat("US-us").format(numberOfRooms * price)}</span>}
                 </div>
                 <div className="room-guests-per-room-container">
                     <p>{1 in guestsPerRoom ? "Guests per Room:" : ""}</p>

@@ -44,10 +44,6 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     }, [rooms, bookings]);
 
     useEffect(() => {
-        console.log(allBookingPrices);
-    }, [allBookingPrices]);
-
-    useEffect(() => {
         async function fetchRooms() {
             return await getFromAPI("rooms");
         }

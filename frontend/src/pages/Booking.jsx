@@ -13,6 +13,7 @@ function Booking() {
         setStartDate,
         setEndDate,
         loading,
+        allBookingPrices,
     } = useRoomsAndBookingsContext();
 
     return (
@@ -37,6 +38,11 @@ function Booking() {
             </div>
             <div>
                 {!loading && availableRooms.length === 0 ? "No available rooms for this date" : ""}
+            </div>
+            <div>
+                <p>{"Total:" + allBookingPrices.reduce((acc, cur) => {
+                    return acc + cur;
+                }, 0)}</p>
             </div>
         </div>
     );

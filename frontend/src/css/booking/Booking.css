@@ -35,7 +35,3 @@
     flex-direction: column;
     gap: 5px;
 }
-
-.datepicker-container > label {
-    width: fit-content;
-}
