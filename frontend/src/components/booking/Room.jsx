@@ -12,7 +12,7 @@ function Room({room, availableRooms}) {
 
     useEffect(() => {
         setFullPrice(price * numberOfRooms);
-    }, [numberOfRooms]);
+    }, [price, numberOfRooms]);
 
     const allOfThisType = rooms.filter(room => room.name === name);
     const availableOfThisType = availableRooms.filter(room => room.name === name);
@@ -32,12 +32,16 @@ function Room({room, availableRooms}) {
                     <p>{"Number of Rooms: "}</p>
                     <select className="room-number-of-rooms-select"
                             onChange={(e) => setNumberOfRooms(Number(e.target.value))}>
-                        {_.range(0, allOfThisType.length + 1).map(number => number > availableOfThisType.length ? createElement("option", {
-                            key: number,
-                            disabled: true,
-                        }, number) : createElement("option", {
-                            key: number,
-                        }, number))}
+                        {_.range(0, allOfThisType.length + 1).map(number => number > availableOfThisType.length
+                            ?
+                            createElement("option", {
+                                key: number,
+                                disabled: true,
+                            }, number)
+                            :
+                            createElement("option", {
+                                key: number,
+                            }, number))}
                     </select>
                 </div>
             </div>

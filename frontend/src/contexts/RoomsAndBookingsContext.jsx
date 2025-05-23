@@ -3,6 +3,7 @@ import {getFromAPI} from "../services/api.js";
 
 const RoomsAndBookingsContext = createContext(null);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useRoomsAndBookingsContext = () => useContext(RoomsAndBookingsContext);
 
 export const RoomsAndBookingsContextProvider = ({children}) => {
@@ -42,7 +43,11 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         return availableRooms;
     }
 
-    const value = {rooms, bookings, getAvailableRooms};
+    const value = {
+        rooms,
+        bookings,
+        getAvailableRooms
+    };
 
     return <RoomsAndBookingsContext.Provider value={value}>
         {children}
