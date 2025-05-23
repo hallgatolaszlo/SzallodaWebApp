@@ -33,18 +33,32 @@ function Home() {
         return rates;
     }
 
+    function scrollLeft() {
+        document.getElementById("media-scroller").scrollLeft -= document.getElementById("media-item").offsetWidth;
+    }
+
+    function scrollRight() {
+        document.getElementById("media-scroller").scrollLeft += document.getElementById("media-item").offsetWidth;
+    }
 
     return (
         <>
             <HomeImage/>
+            <div className="marketing-text">
+                <h1>The best hotel in the world</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum
+                    mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis
+                    dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue
+                    enim, ut porta lorem lacinia consectetur.</p>
+            </div>
 
-            <main>
-                <div className="media-scroller snaps-inline">
+            <div className="media-scroller-container">
+                <p onClick={scrollLeft} className="btn" id="btn-left"><FaArrowLeft/></p>
+                <div id="media-scroller">
                     {loading ? "Loading..." : getRatings().map(rate => <RatingCards key={rate.id} rate={rate}/>)}
-                    <p className="btn-left btn"><FaArrowLeft/></p>
-                    <p className="btn-right btn"><FaArrowRight/></p>
                 </div>
-            </main>
+                <p onClick={scrollRight} className="btn" id="btn-right"><FaArrowRight/></p>
+            </div>
 
             <Footer/>
         </>

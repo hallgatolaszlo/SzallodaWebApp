@@ -1,4 +1,10 @@
-.media-scroller {
+.media-scroller-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#media-scroller {
     display: grid;
     gap: 2rem;
     grid-auto-flow: column;
@@ -6,25 +12,29 @@
 
     overflow-x: auto;
     overscroll-behavior: contain;
-    height: 200px;
+    padding: 10px 40px;
+    scroll-behavior: smooth;
+    scroll-snap-type: both;
+
+    width: 70%;
 }
 
-.media-scroller::-webkit-scrollbar {
+#media-scroller::-webkit-scrollbar {
     display: none;
 }
 
+
 .btn {
-    position: absolute;
-    height: 200px;
     align-content: center;
     width: 30px;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.btn-right {
+#btn-right {
     right: 0;
 }

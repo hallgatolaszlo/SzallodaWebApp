@@ -5,7 +5,7 @@ function RatingCards({rate}) {
 
     return (
         <>
-            <div className="media-item">
+            <div id="media-item">
                 <p>{username}</p>
                 <p>“{text}”</p>
             </div>
