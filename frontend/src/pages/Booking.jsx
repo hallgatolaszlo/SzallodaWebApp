@@ -14,6 +14,8 @@ function Booking() {
     const [startDate, setStartDate] = useState(defaultStartDate);
     const [endDate, setEndDate] = useState(defaultEndDate);
 
+    const [availableRooms, setAvailableRooms] = useState(getAvailableRooms(startDate, endDate));
+
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,7 +24,10 @@ function Booking() {
         }
     }, [rooms, bookings]);
 
-    const availableRooms = getAvailableRooms(startDate, endDate);
+    useEffect(() => {
+        setAvailableRooms(getAvailableRooms(startDate, endDate));
+    }, [startDate, endDate, getAvailableRooms]);
+
     const uniqueRooms = availableRooms.reduce((acc, obj) => {
         if (!acc.some(item => item.name === obj.name)) {
             acc.push(obj);

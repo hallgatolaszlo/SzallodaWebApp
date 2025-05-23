@@ -31,9 +31,10 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         const availableRooms = [];
         for (const room of rooms) {
             const {id} = room;
-            const booking = bookings.find(booking => booking["roomId"] === id);
+            const booking = bookings.find(booking => Number(booking["roomId"]) === Number(id));
             if (booking) {
-                if ((new Date(booking.start) <= startDate && new Date(booking.end) <= startDate) || (new Date(booking.start) >= endDate && new Date(booking.end) >= endDate)) {
+                const {start, end} = booking;
+                if ((new Date(start) <= startDate && new Date(end) <= startDate) || (new Date(start) >= endDate && new Date(end) >= endDate)) {
                     availableRooms.push(room);
                 }
             } else {
