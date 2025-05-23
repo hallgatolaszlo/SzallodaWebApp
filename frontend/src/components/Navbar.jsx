@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
+import {createElement, useEffect, useRef, useState} from "react";
 import {FaBars, FaTimes, FaRegUserCircle, FaHotel} from "react-icons/fa";
 import '../css/Navbar.css';
 
@@ -40,6 +40,54 @@ function Navbar() {
         };
     }, [isScrolled]);
 
+    /*multiple condition rendering*/
+    function RenderLog() {
+        const role = JSON.parse(window.sessionStorage.getItem("accountData")).role;
+        if (role === "admin") {
+            return (
+                createElement(Link, {to: "/admin", className: "nav-link"}, "Admin")
+            );
+        } else {
+            return (
+                createElement(Link, {to: "/myBookings", className: "nav-link"}, "My Bookings")
+            );
+        }
+    }
+
+    function RenderResponsive() {
+        if (isNavVisible === true) { //on small screen;
+            const linkElements = [];
+            if (JSON.parse(window.sessionStorage.getItem("accountData")).role.length > 0) {
+                linkElements.push(RenderLog());
+            } else {
+                linkElements.push(
+                    createElement(Link, {to: "/login", className: "nav-link"}, "Login"),
+                    createElement(Link, {to: "/register", className: "nav-link"}, "Sign Up"),
+                );
+            }
+            return (
+                createElement("div", {className: "nav-link-log-group"}, linkElements)
+            );
+        } else { //on large screen;
+            const divElements = [];
+            if (JSON.parse(window.sessionStorage.getItem("accountData")).role.length > 0) {
+                divElements.push(RenderLog());
+            } else {
+                divElements.push(
+                    createElement("button", {className: "nav-link-btn"},
+                        createElement(FaRegUserCircle, {className: "nav-link-icon"})
+                    ),
+                    createElement(Link, {to: "/login", className: "nav-link"}, "Login"),
+                    createElement(Link, {to: "/register", className: "nav-link"}, "Sign Up"),
+                );
+            }
+            return (
+                createElement("div", {className: "nav-link-log-group"}, divElements)
+            );
+        }
+    }
+
+
     return (
         <header ref={headerRef}>
             <div className="navbar-brand flexbox-item">
@@ -56,20 +104,7 @@ function Navbar() {
                 <div className="navbar-links">
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/booking" className="nav-link">Booking</Link>
-                    {isNavVisible === true ?
-                        (<div className="nav-link-log-group">
-                            <Link to="/login" className="nav-link">Login</Link>
-                            <Link to="/register" className="nav-link">Sign Up</Link>
-                        </div>) : (
-                            <div className="nav-link dropdown">
-                                <button className="nav-link-btn">
-                                    <FaRegUserCircle className="nav-link-icon"/>
-                                </button>
-                                <div className="dropdown-content">
-                                    <Link to="/login" className="nav-link">Login</Link>
-                                    <Link to="/register" className="nav-link">Sign Up</Link>
-                                </div>
-                            </div>)}
+                    {RenderResponsive()}
                 </div>
                 <button onClick={showBar} className="nav-btn nav-btn-close">
                     <FaTimes/>

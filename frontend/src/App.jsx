@@ -7,6 +7,7 @@ import Register from "./pages/Register.jsx";
 import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import {RoomsAndBookingsContextProvider} from "./contexts/RoomsAndBookingsContext.jsx";
+import MyBookings from "./pages/MyBookings.jsx";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/booking" element={<Booking/>}></Route>
                         <Route path="/admin" element={<Admin/>}></Route>
                         <Route path="/register" element={<Register/>}></Route>
+                        <Route path="/myBookings" element={<MyBookings/>}></Route>
                     </Routes>
                 </main>
             </RoomsAndBookingsContextProvider>
