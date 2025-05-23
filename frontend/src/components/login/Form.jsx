@@ -27,6 +27,7 @@ function Form() {
             if (account.username === username && account.password === password) {
                 sessionStorage.setItem("username", username);
                 sessionStorage.setItem("accountId", account.id);
+                sessionStorage.setItem("role", account.role);
                 navigate("/", {replace: true});
             }
         })
