@@ -1,0 +1,5 @@
+.media-item {
+    background: var(--deeper-gold);
+    border-radius: 10px;
+    padding: 10px;
+}

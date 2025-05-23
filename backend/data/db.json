@@ -1,0 +1,225 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Deluxe Twin Room",
+      "price": 2000,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Superior Double Room",
+      "price": 2500,
+      "capacity": 2,
+      "image": "src/assets/img/rooms/superior-double-room.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Family Suite",
+      "price": 4000,
+      "capacity": 4,
+      "image": "src/assets/img/rooms/family-suite.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Family Suite",
+      "price": 4000,
+      "capacity": 4,
+      "image": "src/assets/img/rooms/family-suite.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Single Economy Room",
+      "price": 500,
+      "capacity": 1,
+      "image": "src/assets/img/rooms/single-economy-room.jpg"
+    }
+  ],
+  "guests": [
+    {
+      "id": 1,
+      "name": "Anna Kovács",
+      "email": "anna@example.com",
+      "phone": "+36201234567"
+    },
+    {
+      "id": 2,
+      "name": "Béla Nagy",
+      "email": "bela.nagy@example.com",
+      "phone": "+36207654321"
+    },
+    {
+      "id": 3,
+      "name": "Csilla Szabó",
+      "email": "csilla.szabo@example.com",
+      "phone": "+36203332211"
+    },
+    {
+      "id": 4,
+      "name": "Dániel Horváth",
+      "email": "daniel.horvath@example.com",
+      "phone": "+36205556677"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "roomId": 1,
+      "guestId": 1,
+      "guestCount": 2,
+      "start": "2025-07-01",
+      "end": "2025-07-04"
+    },
+    {
+      "id": 2,
+      "roomId": 5,
+      "guestId": 2,
+      "guestCount": 2,
+      "start": "2025-08-10",
+      "end": "2025-08-15"
+    },
+    {
+      "id": 3,
+      "roomId": 9,
+      "guestId": 3,
+      "guestCount": 4,
+      "start": "2025-07-20",
+      "end": "2025-07-22"
+    },
+    {
+      "id": 4,
+      "roomId": 11,
+      "guestId": 4,
+      "guestCount": 1,
+      "start": "2025-09-05",
+      "end": "2025-09-06"
+    }
+  ],
+  "ratings": [
+    {
+      "id": 1,
+      "guestId": 1,
+      "username": "Elena M.",
+      "rating": 5,
+      "text": "A magical underwater escape! Hotel Atlantis is unlike any place I’ve ever stayed. The views of marine life from my suite were breathtaking, and the ambiance was peaceful and surreal."
+    },
+    {
+      "id": 2,
+      "guestId": 2,
+      "username": "James K.",
+      "rating": 5,
+      "text": "From the submarine arrival to the gourmet seafood dining, everything was flawless. The staff were incredibly attentive and made us feel like royalty beneath the sea."
+    },
+    {
+      "id": 3,
+      "guestId": 3,
+      "username": "Priya R.",
+      "rating": 5,
+      "text": "An unforgettable experience! Watching dolphins and manta rays glide past our room window was pure magic. Atlantis redefines luxury."
+    },
+    {
+      "id": 4,
+      "guestId": 4,
+      "username": "Daniel T.",
+      "rating": 4.5,
+      "text": "Hotel Atlantis is a masterpiece of engineering and hospitality. Our kids loved the underwater observatory and the coral reef excursions. 10/10 for families!"
+    },
+    {
+      "id": 5,
+      "guestId": 5,
+      "username": "Sophie L.",
+      "rating": 5,
+      "text": "Absolutely stunning! The tranquility of the ocean, the elegant design, and the five-star service made this one of the best stays of my life."
+    }
+  ],
+  "accounts": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": "6266"
+    },
+    {
+      "id": "63ad",
+      "username": "annakovacs",
+      "password": "annakovacs"
+    }
+  ]
+}

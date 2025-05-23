@@ -19,3 +19,7 @@
     padding: 0;
     font-family: var(--base-font), sans-serif;
 }
+
+body {
+    overflow-x: hidden;
+}
