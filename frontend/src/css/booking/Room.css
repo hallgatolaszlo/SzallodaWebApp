@@ -48,7 +48,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -62,17 +62,48 @@
 }
 
 .room-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding-top: 10px;
     padding-left: 10px;
-    line-height: 2;
+    gap: 10px;
     border-left: 2px solid var(--color1);
     grid-area: main;
 }
 
-.room-number-of-rooms-container {
+.room-number-of-rooms-container,
+.room-guests-per-current-room-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.room-number-of-rooms-container > select {
+    width: 2rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color1);
+    background-color: var(--white);
+    border: 2px solid var(--color1);
+    border-radius: 5px;
+    cursor: pointer;
+    appearance: none;
+}
+
+.room-number-of-rooms-container > span,
+.room-guests-per-current-room-container > span {
+    color: dimgrey;
+}
+
+.room-guests-per-room-container {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
