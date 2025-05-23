@@ -25,9 +25,11 @@ function Form() {
 
         accounts.forEach((account) => {
             if (account.username === username && account.password === password) {
-                sessionStorage.setItem("username", username);
-                sessionStorage.setItem("accountId", account.id);
-                sessionStorage.setItem("role", account.role);
+                sessionStorage.setItem("accountData", JSON.stringify({
+                    "username": account.username,
+                    "accountId": account.id,
+                    "role": account.role,
+                }));
                 navigate("/", {replace: true});
             }
         })
