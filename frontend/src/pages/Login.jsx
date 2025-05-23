@@ -1,9 +1,11 @@
 import Form from "../components/login/Form.jsx";
-import '../css/Login.css'
+import '../css/login/Login.css'
 
-function Login(){
+function Login() {
     return (
-        <Form />
+        <div className="login-page-container">
+            <Form/>
+        </div>
     )
 }
 
