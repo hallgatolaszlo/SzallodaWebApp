@@ -7,7 +7,7 @@ header {
     display: flex;
     text-align: center;
     flex-direction: column;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.3);
     transition: all 0.5s ease-in-out;
     color: var(--color1);
 }
@@ -53,7 +53,7 @@ header .flexbox-item:first-child {
 }
 
 .nav-link:hover {
-    background-color: rgba(34, 99, 131, 0.5);
+    background-color: rgba(34, 99, 131, 0.7);
     color: var(--color5);
 }
 
@@ -68,6 +68,18 @@ header .flexbox-item:first-child {
     border: none;
     outline: none;
     color: var(--color1);
+}
+
+.log-out-btn {
+    border: none;
+    color: var(--color1);
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.log-out-btn:hover {
+    background-color: rgba(34, 99, 131);
+    color: var(--color5);
 }
 
 @media (max-width: 768px) {
@@ -132,12 +144,26 @@ header .flexbox-item:first-child {
     .slash {
         display: inline;
     }
+
+    .log-out-btn {
+        background: transparent;
+        border: none;
+        color: var(--color1);
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    .log-out-btn:hover {
+        background-color: rgba(34, 99, 131, 0.5);
+        color: var(--color5);
+    }
 }
 
 
 /*---------------------------------------------*/
 .dropdown {
     display: inline-block;
+    cursor: pointer;
 }
 
 .nav-link-btn {
@@ -168,21 +194,9 @@ header .flexbox-item:first-child {
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(34, 99, 131, 0.5);
+    background-color: rgba(34, 99, 131);
 }
 
 .dropdown:hover .dropdown-content {
     display: flex;
 }
-
-/*div {
-    position: fixed;
-    background-color: transparent;
-    width: 100vw;
-}
-
-h1 {
-    color: var(--color1);
-    text-align: center;
-    padding: 20px;
-}*/

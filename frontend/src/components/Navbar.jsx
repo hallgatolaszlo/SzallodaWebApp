@@ -2,17 +2,39 @@ import {Link} from "react-router-dom";
 import {createElement, useEffect, useRef, useState} from "react";
 import {FaBars, FaTimes, FaRegUserCircle, FaHotel} from "react-icons/fa";
 import '../css/Navbar.css';
+import {useLoginContext} from "../contexts/LoginContext.jsx";
 
 
 function Navbar() {
+    const {isLoggedIn, role, logout} = useLoginContext();
     /*navbar responsivity*/
     const navRef = useRef();
     const [isNavVisible, setIsNavVisible] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
 
     const showBar = () => {
         setIsNavVisible(!isNavVisible);
         navRef.current.classList.toggle("show-nav");
     };
+
+    const hideBar = () => {
+        setIsNavVisible(false);
+        navRef.current.classList.remove("show-nav");
+    };
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [width]);
+
+    function handleResize() {
+        setWidth(window.innerWidth);
+        if (width > 768 && isNavVisible) {
+            showBar();
+        }
+    }
 
     /*header fading*/
     const logoRef = useRef();
@@ -42,54 +64,99 @@ function Navbar() {
 
     /*multiple condition rendering*/
     function RenderLog() {
-        const role = JSON.parse(window.sessionStorage.getItem("accountData")).role;
-        if (role === "admin") {
-            return (
-                createElement(Link, {to: "/admin", className: "nav-link"}, "Admin")
-            );
-        } else {
-            return (
-                createElement(Link, {to: "/myBookings", className: "nav-link"}, "My Bookings")
-            );
-        }
+        return role === "admin" ? createElement(Link, {
+                to: "/admin",
+                className: "nav-link",
+                key: 1,
+                onClick: hideBar
+            }, "Admin") :
+            createElement(Link, {
+                to: "/myBookings",
+                className: "nav-link",
+                key: 2,
+                onClick: hideBar
+            }, "My Bookings");
     }
 
     function RenderResponsive() {
-        if (isNavVisible === true) { //on small screen;
-            const linkElements = [];
-            if (JSON.parse(window.sessionStorage.getItem("accountData"))) {
-                linkElements.push(RenderLog());
-            } else {
-                linkElements.push(
-                    createElement(Link, {to: "/login", className: "nav-link"}, "Login"),
-                    createElement(Link, {to: "/register", className: "nav-link"}, "Sign Up"),
-                );
-            }
-            return (
-                createElement("div", {className: "nav-link-log-group"}, linkElements)
-            );
-        } else { //on large screen;
-            const divElements = [];
-            if (JSON.parse(window.sessionStorage.getItem("accountData"))) {
-                divElements.push(RenderLog());
-            } else {
-                const links = [
-                    createElement(Link, {to: "/login", className: "nav-link"}, "Login"),
-                    createElement(Link, {to: "/register", className: "nav-link"}, "Sign Up"),
-                ];
-                divElements.push(
-                    createElement("button", {className: "nav-link-btn"},
-                        createElement(FaRegUserCircle, {className: "nav-link-icon"})
-                    ),
-                    createElement("div", {className: "dropdown-content"}, links)
-                );
-            }
-            return (
-                createElement("div", {className: "nav-link-group-on-large-screen"}, divElements)
-            );
-        }
-    }
+        const divElements = [
+            createElement(Link, {
+                to: "/",
+                className: "nav-link",
+                key: 3,
+                onClick: hideBar
+            }, "Home"),
+            createElement(Link, {
+                to: "/booking",
+                className: "nav-link",
+                key: 4,
+                onClick: hideBar
+            }, "Booking"),
+        ];
 
+        if (isNavVisible === true) { //on a small screen;
+            const linkElements = isLoggedIn ? (
+                [RenderLog(), createElement("button", {
+                    className: "nav-link log-out-btn",
+                    onClick: logout,
+                    key: 8,
+                }, "Log out")]
+            ) : (
+                [createElement(Link, {
+                    to: "/login",
+                    className: "nav-link",
+                    key: 5,
+                    onClick: hideBar
+                }, "Login"),
+                    createElement(Link, {
+                        to: "/register",
+                        className: "nav-link",
+                        key: 6,
+                        onClick: hideBar
+                    }, "Sign Up")]);
+
+            divElements.push(createElement("div", {
+                className: "nav-link-log-group",
+                key: 7
+            }, linkElements));
+        } else { //on a large screen;
+            const linkElements = [
+                createElement("button", {className: "nav-link-btn", key: 9},
+                    createElement(FaRegUserCircle, {className: "nav-link-icon", key: 10})
+                )
+            ];
+            if (isLoggedIn) {
+                divElements.push(RenderLog());
+                linkElements.push(createElement("button", {
+                    className: "dropdown-content log-out-btn",
+                    onClick: logout,
+                    key: 11
+                }, "Log out"));
+            } else {
+                //dropdown menu;
+                linkElements.push(
+                    createElement("div", {className: "dropdown-content", key: 14}, [
+                        createElement(Link, {
+                            to: "/login",
+                            className: "nav-link",
+                            key: 12, onClick:
+                            hideBar
+                        }, "Login"),
+                        createElement(Link, {
+                            to: "/register",
+                            className: "nav-link",
+                            key: 13,
+                            onClick: hideBar
+                        }, "Sign Up"),
+                    ])
+                );
+
+            }
+            divElements.push(createElement("div", {className: "nav-link dropdown", key: 15}, linkElements));
+        }
+
+        return createElement("div", {className: "navbar-links", key: 16}, divElements);
+    }
 
     return (
         <header ref={headerRef}>
@@ -104,11 +171,7 @@ function Navbar() {
                 </button>
             </div>
             <nav className="navbar flexbox-item" ref={navRef}>
-                <div className="navbar-links">
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/booking" className="nav-link">Booking</Link>
-                    {RenderResponsive()}
-                </div>
+                {RenderResponsive()}
                 <button onClick={showBar} className="nav-btn nav-btn-close">
                     <FaTimes/>
                 </button>
@@ -118,9 +181,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-/*<div className="dropdown-content">
-                                    <Link to="/login" className="nav-link">Login</Link>
-                                    <Link to="/register" className="nav-link">Sign Up</Link>
-                                </div>*/

@@ -2,8 +2,10 @@ import {useEffect, useState} from "react";
 import {getFromAPI} from "../../services/api.js";
 import '../../css/login/Form.css';
 import {Link, useNavigate} from 'react-router-dom';
+import {useLoginContext} from "../../contexts/LoginContext.jsx";
 
 function Form() {
+    const {login} = useLoginContext();
     const [accounts, setAccounts] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -25,14 +27,14 @@ function Form() {
 
         accounts.forEach((account) => {
             if (account.username === username && account.password === password) {
-                sessionStorage.setItem("accountData", JSON.stringify({
+                login({
                     "username": account.username,
                     "accountId": account.id,
                     "role": account.role,
-                }));
+                });
                 navigate("/", {replace: true});
             }
-        })
+        });
 
     }
 
