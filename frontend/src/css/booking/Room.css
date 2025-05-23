@@ -56,6 +56,7 @@
 }
 
 .room-image {
+    object-fit: cover;
     width: 100%;
     border: 2px solid var(--color1);
     border-top: none;
@@ -66,11 +67,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding-top: 10px;
-    padding-left: 10px;
     gap: 10px;
     border-left: 2px solid var(--color1);
     grid-area: main;
+    padding-left: 10px;
+}
+
+.room-number-of-rooms-container {
+    margin-top: 10px;
 }
 
 .room-number-of-rooms-container,
@@ -82,6 +86,7 @@
     align-items: center;
 }
 
+.room-guests-per-current-room-container > select,
 .room-number-of-rooms-container > select {
     width: 2rem;
     height: 1.5rem;
@@ -112,4 +117,11 @@
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--color1);
+}
+
+.room-total-price-container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

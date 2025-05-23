@@ -11,6 +11,42 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     const [rooms, setRooms] = useState(null);
     const [bookings, setBookings] = useState(null);
 
+    const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
+    const defaultEndDate = new Date(defaultStartDate.getFullYear(), defaultStartDate.getMonth(), defaultStartDate.getDate() + 1);
+
+    const [startDate, setStartDate] = useState(defaultStartDate);
+    const [endDate, setEndDate] = useState(defaultEndDate);
+    const [numberOfNights, setNumberOfNights] = useState(1);
+
+    const [loading, setLoading] = useState(true);
+
+    const [availableRooms, setAvailableRooms] = useState(getAvailableRooms());
+    const [uniqueRooms, setUniqueRooms] = useState([]);
+    const [allBookingPrices, setAllBookingPrices] = useState([]);
+
+
+    useEffect(() => {
+        const uniqueRooms = availableRooms.reduce((acc, obj) => {
+            if (!acc.some(item => item.name === obj.name)) {
+                acc.push(obj);
+            }
+            return acc;
+        }, []);
+
+        setUniqueRooms(uniqueRooms);
+        setAllBookingPrices(new Array(uniqueRooms.length).fill(0));
+    }, [availableRooms]);
+
+    useEffect(() => {
+        if (rooms && bookings) {
+            setLoading(false);
+        }
+    }, [rooms, bookings]);
+
+    useEffect(() => {
+        console.log(allBookingPrices);
+    }, [allBookingPrices]);
+
     useEffect(() => {
         async function fetchRooms() {
             return await getFromAPI("rooms");
@@ -24,8 +60,19 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         fetchBookings().then(data => setBookings(data));
     }, []);
 
-    function getAvailableRooms(startDate, endDate) {
-        const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
+    useEffect(() => {
+            setAvailableRooms(getAvailableRooms());
+            setNumberOfNights(getNumberOfNights());
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [startDate, endDate, loading]);
+
+    function getNumberOfNights() {
+        const diffTime = Math.abs(endDate - startDate);
+        return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    }
+
+    function getAvailableRooms() {
         if (startDate >= endDate || startDate < defaultStartDate || !rooms || !bookings) return [];
 
         const availableRooms = [];
@@ -47,7 +94,16 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     const value = {
         rooms,
         bookings,
-        getAvailableRooms
+        availableRooms,
+        uniqueRooms,
+        startDate,
+        endDate,
+        setStartDate,
+        setEndDate,
+        loading,
+        numberOfNights,
+        allBookingPrices,
+        setAllBookingPrices
     };
 
     return <RoomsAndBookingsContext.Provider value={value}>
