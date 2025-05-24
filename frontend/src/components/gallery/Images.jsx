@@ -12,7 +12,7 @@ function Images() {
             </div>
             <div className="gallery-page-bar-button"
                  onClick={() => navigate("/gallery-lobbies")}>
-                Lobby
+                Lobbies
             </div>
         </div>
     )

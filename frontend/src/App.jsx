@@ -29,8 +29,8 @@ function App() {
                             <Route path="/register" element={<Register/>}></Route>
                             <Route path="/myBookings" element={<MyBookings/>}></Route>
                             <Route path="/gallery" element={<Gallery/>}></Route>
-                            <Route path="/gallery-lobbies" element={<GalleryRooms/>}></Route>
-                            <Route path="/gallery-rooms" element={<GalleryLobbies/>}></Route>
+                            <Route path="/gallery-lobbies" element={<GalleryLobbies/>}></Route>
+                            <Route path="/gallery-rooms" element={<GalleryRooms/>}></Route>
                         </Routes>
                     </main>
                 </RoomsAndBookingsContextProvider>

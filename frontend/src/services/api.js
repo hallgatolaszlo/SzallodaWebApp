@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost:3000/";
-const ENDPOINTS = ["rooms", "guests", "bookings", "ratings", "accounts"];
+const ENDPOINTS = ["rooms", "guests", "bookings", "ratings", "accounts", "images"];
 
 export function getEndpoints() {
     return ENDPOINTS;
