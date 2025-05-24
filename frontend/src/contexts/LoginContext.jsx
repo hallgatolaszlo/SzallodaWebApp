@@ -17,11 +17,20 @@ export const LoginContextProvider = ({children}) => {
         }
     }, []);
 
-    useEffect(() => {
-        console.log(isLoggedIn);
-    }, [isLoggedIn]);
+    const login = (data) => {
+        sessionStorage.setItem("accountData", JSON.stringify(data));
+        setIsLoggedIn(true);
+        setRole(data.role);
+    };
 
-    const value = {isLoggedIn, setIsLoggedIn, role, setRole};
+    const logout = () => {
+        sessionStorage.removeItem("accountData");
+        setIsLoggedIn(false);
+        setRole(null);
+    };
+
+
+    const value = {isLoggedIn, setIsLoggedIn, role, setRole, login, logout};
 
     return (
         <LoginContext.Provider value={value}>
