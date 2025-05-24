@@ -245,5 +245,82 @@
       "password": "rabmihaly",
       "role": "user"
     }
+  ],
+  "images":[
+    {
+      "id": 1,
+      "url": "public/gallery/1.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 2,
+      "url": "public/gallery/2.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 3,
+      "url": "public/gallery/3.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 4,
+      "url": "public/gallery/4.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 5,
+      "url": "public/gallery/5.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 6,
+      "url": "public/gallery/6.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 7,
+      "url": "public/gallery/7.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 8,
+      "url": "public/gallery/8.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 9,
+      "url": "public/gallery/9.jpg",
+      "class": "lobby"
+    },
+    {
+      "id": 10,
+      "url": "public/gallery/10.jpg",
+      "class": "room"
+    },
+    {
+      "id": 11,
+      "url": "public/gallery/11.jpg",
+      "class": "room"
+    },
+    {
+      "id": 12,
+      "url": "public/rooms/deluxe-twin-room.jpg",
+      "class": "room"
+    },
+    {
+      "id": 13,
+      "url": "public/rooms/family-suite.jpg",
+      "class": "room"
+    },
+    {
+      "id": 14,
+      "url": "public/rooms/single-economy-room.jpg",
+      "class": "room"
+    },
+    {
+      "id": 15,
+      "url": "public/rooms/superior-double-room.jpg",
+      "class": "room"
+    }
   ]
 }

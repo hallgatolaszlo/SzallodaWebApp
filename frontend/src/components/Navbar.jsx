@@ -92,6 +92,12 @@ function Navbar() {
                 key: 4,
                 onClick: hideBar
             }, "Booking"),
+            createElement(Link, {
+                to: "/gallery",
+                className: "nav-link",
+                key:99,
+                onClick: hideBar
+            }, "Gallery")
         ];
 
         if (isNavVisible === true) { //on a small screen;

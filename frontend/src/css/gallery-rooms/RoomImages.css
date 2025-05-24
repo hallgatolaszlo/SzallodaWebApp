@@ -3,5 +3,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
+    margin-top: 160px;
+}
 
+.gallery-rooms-images-images {
+    margin: 5px;
+}
+
+.gallery-rooms-images-images-inside{
+    width: 500px;
+    height: 300px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top:  10px;
 }
