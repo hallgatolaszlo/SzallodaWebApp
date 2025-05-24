@@ -8,12 +8,14 @@ export const useLoginContext = () => useContext(LoginContext);
 export const LoginContextProvider = ({children}) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [role, setRole] = useState(null);
+    const [userAccountId, setUserAccountId] = useState(null);
 
     useEffect(() => {
-        const accountData = sessionStorage.getItem("accountData");
+        const accountData = JSON.parse(sessionStorage.getItem("accountData"));
         if (accountData) {
             setIsLoggedIn(true);
             setRole(accountData.role);
+            setUserAccountId(accountData.accountId);
         }
     }, []);
 
@@ -30,7 +32,7 @@ export const LoginContextProvider = ({children}) => {
     };
 
 
-    const value = {isLoggedIn, setIsLoggedIn, role, setRole, login, logout};
+    const value = {userAccountId, isLoggedIn, setIsLoggedIn, role, setRole, login, logout};
 
     return (
         <LoginContext.Provider value={value}>

@@ -1,112 +1,112 @@
 {
   "rooms": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
       "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
       "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
       "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
       "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
       "image": "src/assets/img/rooms/superior-double-room.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
       "image": "src/assets/img/rooms/superior-double-room.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
       "image": "src/assets/img/rooms/superior-double-room.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
       "image": "src/assets/img/rooms/superior-double-room.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Family Suite",
       "price": 4000,
       "capacity": 4,
       "image": "src/assets/img/rooms/family-suite.jpg"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Family Suite",
       "price": 4000,
       "capacity": 4,
       "image": "src/assets/img/rooms/family-suite.jpg"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
       "image": "src/assets/img/rooms/single-economy-room.jpg"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
       "image": "src/assets/img/rooms/single-economy-room.jpg"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
       "image": "src/assets/img/rooms/single-economy-room.jpg"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
       "image": "src/assets/img/rooms/single-economy-room.jpg"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
       "image": "src/assets/img/rooms/single-economy-room.jpg"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
@@ -115,99 +115,119 @@
   ],
   "guests": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Anna Kovács",
       "email": "anna@example.com",
       "phone": "+36201234567",
       "accountId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Hallgató László",
       "email": "hallgato.laszlo@example.com",
       "phone": "+36207654321",
       "accountId": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Gercsák Tamás",
       "email": "gercsak.tamas@example.com",
       "phone": "+36203332211",
       "accountId": 3
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Rab Mihály",
       "email": "rab.mihaly@example.com",
       "phone": "+36205556677",
       "accountId": 4
+    },
+    {
+      "id": 5,
+      "name": "asdd",
+      "email": "asdd@asd.asd",
+      "phone": "123123123",
+      "accountId": "2"
     }
   ],
   "bookings": [
     {
-      "id": 1,
+      "id": "1",
       "roomId": 1,
       "guestId": 1,
       "guestCount": 2,
       "start": "2025-07-01",
-      "end": "2025-07-04"
+      "end": "2025-07-04",
+      "cost": 2000
     },
     {
-      "id": 2,
+      "id": "2",
       "roomId": 5,
       "guestId": 2,
       "guestCount": 2,
       "start": "2025-08-10",
-      "end": "2025-08-15"
+      "end": "2025-08-15",
+      "cost": 2625
     },
     {
-      "id": 3,
+      "id": "3",
       "roomId": 9,
       "guestId": 3,
       "guestCount": 4,
       "start": "2025-07-20",
-      "end": "2025-07-22"
+      "end": "2025-07-22",
+      "cost": 4600
     },
     {
-      "id": 4,
+      "id": "4",
       "roomId": 11,
       "guestId": 4,
       "guestCount": 1,
       "start": "2025-09-05",
-      "end": "2025-09-06"
+      "end": "2025-09-06",
+      "cost": 500
+    },
+    {
+      "id": "bd63",
+      "roomId": "1",
+      "guestId": 5,
+      "guestCount": 1,
+      "start": "2025-05-24",
+      "end": "2025-05-25",
+      "cost": 2000
     }
   ],
   "ratings": [
     {
-      "id": 1,
+      "id": "1",
       "guestId": 1,
       "username": "Elena M.",
       "rating": 5,
       "text": "A magical underwater escape! Hotel Atlantis is unlike any place I’ve ever stayed. The views of marine life from my suite were breathtaking, and the ambiance was peaceful and surreal."
     },
     {
-      "id": 2,
+      "id": "2",
       "guestId": 2,
       "username": "James K.",
       "rating": 5,
       "text": "From the submarine arrival to the gourmet seafood dining, everything was flawless. The staff were incredibly attentive and made us feel like royalty beneath the sea."
     },
     {
-      "id": 3,
+      "id": "3",
       "guestId": 3,
       "username": "Priya R.",
       "rating": 5,
       "text": "An unforgettable experience! Watching dolphins and manta rays glide past our room window was pure magic. Atlantis redefines luxury."
     },
     {
-      "id": 4,
+      "id": "4",
       "guestId": 4,
       "username": "Daniel T.",
       "rating": 4.5,
       "text": "Hotel Atlantis is a masterpiece of engineering and hospitality. Our kids loved the underwater observatory and the coral reef excursions. 10/10 for families!"
     },
     {
-      "id": 5,
+      "id": "5",
       "guestId": 5,
       "username": "Sophie L.",
       "rating": 5,
@@ -216,9 +236,9 @@
   ],
   "accounts": [
     {
+      "id": "6266",
       "username": "admin",
       "password": "admin",
-      "id": "6266",
       "role": "admin"
     },
     {
@@ -246,80 +266,80 @@
       "role": "user"
     }
   ],
-  "images":[
+  "images": [
     {
-      "id": 1,
-      "url": "public/gallery/1.jpg",
+      "id": "1",
+      "url": "/gallery/1.jpg",
       "class": "lobby"
     },
     {
-      "id": 2,
-      "url": "public/gallery/2.jpg",
+      "id": "2",
+      "url": "/gallery/2.jpg",
       "class": "lobby"
     },
     {
-      "id": 3,
-      "url": "public/gallery/3.jpg",
+      "id": "3",
+      "url": "/gallery/3.jpg",
       "class": "lobby"
     },
     {
-      "id": 4,
-      "url": "public/gallery/4.jpg",
+      "id": "4",
+      "url": "/gallery/4.jpg",
       "class": "lobby"
     },
     {
-      "id": 5,
-      "url": "public/gallery/5.jpg",
+      "id": "5",
+      "url": "/gallery/5.jpg",
       "class": "lobby"
     },
     {
-      "id": 6,
-      "url": "public/gallery/6.jpg",
+      "id": "6",
+      "url": "/gallery/6.jpg",
       "class": "lobby"
     },
     {
-      "id": 7,
-      "url": "public/gallery/7.jpg",
+      "id": "7",
+      "url": "/gallery/7.jpg",
       "class": "lobby"
     },
     {
-      "id": 8,
-      "url": "public/gallery/8.jpg",
+      "id": "8",
+      "url": "/gallery/8.jpg",
       "class": "lobby"
     },
     {
-      "id": 9,
-      "url": "public/gallery/9.jpg",
+      "id": "9",
+      "url": "/gallery/9.jpg",
       "class": "lobby"
     },
     {
-      "id": 10,
-      "url": "public/gallery/10.jpg",
+      "id": "10",
+      "url": "/gallery/10.jpg",
       "class": "room"
     },
     {
-      "id": 11,
-      "url": "public/gallery/11.jpg",
+      "id": "11",
+      "url": "/gallery/11.jpg",
       "class": "room"
     },
     {
-      "id": 12,
-      "url": "public/rooms/deluxe-twin-room.jpg",
+      "id": "12",
+      "url": "/rooms/deluxe-twin-room.jpg",
       "class": "room"
     },
     {
-      "id": 13,
-      "url": "public/rooms/family-suite.jpg",
+      "id": "13",
+      "url": "/rooms/family-suite.jpg",
       "class": "room"
     },
     {
-      "id": 14,
-      "url": "public/rooms/single-economy-room.jpg",
+      "id": "14",
+      "url": "/rooms/single-economy-room.jpg",
       "class": "room"
     },
     {
-      "id": 15,
-      "url": "public/rooms/superior-double-room.jpg",
+      "id": "15",
+      "url": "/rooms/superior-double-room.jpg",
       "class": "room"
     }
   ]

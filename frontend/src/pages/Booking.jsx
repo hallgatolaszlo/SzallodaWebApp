@@ -3,8 +3,12 @@ import '../css/booking/Booking.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {useRoomsAndBookingsContext} from "../contexts/RoomsAndBookingsContext.jsx";
+import ContactDetails from "../components/booking/ContactDetails.jsx";
+import {useLoginContext} from "../contexts/LoginContext.jsx";
 
 function Booking() {
+    const {isLoggedIn} = useLoginContext();
+
     const {
         availableRooms,
         uniqueRooms,
@@ -13,7 +17,7 @@ function Booking() {
         setStartDate,
         setEndDate,
         loading,
-        allBookingPrices,
+        totalCost
     } = useRoomsAndBookingsContext();
 
     return (
@@ -31,18 +35,17 @@ function Booking() {
                 </div>
             </div>
             <div className="rooms-grid">
-                {loading
-                    ? "Loading..."
-                    : uniqueRooms.map(room => <Room room={room} key={room.id}/>)
+                {loading ? "Loading..." : availableRooms.length === 0 ? "No available rooms for this date" : uniqueRooms.map(room =>
+                    <Room room={room} key={room.id}/>)
                 }
             </div>
             <div>
-                {!loading && availableRooms.length === 0 ? "No available rooms for this date" : ""}
+                <p>
+                    {!loading ? "Total cost: $" + new Intl.NumberFormat("US-us").format(totalCost) + "" : ""}
+                </p>
             </div>
             <div>
-                <p>{"Total:" + allBookingPrices.reduce((acc, cur) => {
-                    return acc + cur;
-                }, 0)}</p>
+                {isLoggedIn ? <ContactDetails/> : <p>Please log in to book a room</p>}
             </div>
         </div>
     );
