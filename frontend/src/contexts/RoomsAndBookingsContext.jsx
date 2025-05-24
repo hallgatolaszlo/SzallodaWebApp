@@ -10,6 +10,7 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
 
     const [rooms, setRooms] = useState(null);
     const [bookings, setBookings] = useState(null);
+    const [guests, setGuests] = useState([null]);
 
     const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
     const defaultEndDate = new Date(defaultStartDate.getFullYear(), defaultStartDate.getMonth(), defaultStartDate.getDate() + 1);
@@ -22,8 +23,28 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
 
     const [availableRooms, setAvailableRooms] = useState(getAvailableRooms());
     const [uniqueRooms, setUniqueRooms] = useState([]);
-    const [allBookingPrices, setAllBookingPrices] = useState([]);
 
+    const [selectedBookings, setSelectedBookings] = useState({});
+    const [totalCost, setTotalCost] = useState(0);
+
+    useEffect(() => {
+        setTotalCost(getTotalCost());
+    }, [selectedBookings]);
+
+    useEffect(() => {
+        setSelectedBookings(prev => {
+            const prevSelectedBookings = {...prev};
+            const newSelectedBookings = {};
+            for (const room of uniqueRooms) {
+                if (room.name in prevSelectedBookings) {
+                    newSelectedBookings[room.name] = prevSelectedBookings[room.name];
+                } else {
+                    newSelectedBookings[room.name] = [];
+                }
+            }
+            return newSelectedBookings;
+        });
+    }, [startDate, endDate, uniqueRooms]);
 
     useEffect(() => {
         const uniqueRooms = availableRooms.reduce((acc, obj) => {
@@ -34,7 +55,6 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         }, []);
 
         setUniqueRooms(uniqueRooms);
-        setAllBookingPrices(new Array(uniqueRooms.length).fill(0));
     }, [availableRooms]);
 
     useEffect(() => {
@@ -52,8 +72,13 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
             return await getFromAPI("bookings");
         }
 
+        async function fetchGuests() {
+            return await getFromAPI("guests");
+        }
+
         fetchRooms().then(data => setRooms(data));
         fetchBookings().then(data => setBookings(data));
+        fetchGuests().then(data => setGuests(data));
     }, []);
 
     useEffect(() => {
@@ -68,18 +93,27 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         return Math.floor(diffTime / (1000 * 60 * 60 * 24));
     }
 
+    window.onclick = () => {
+        console.log();
+    };
+
     function getAvailableRooms() {
         if (startDate >= endDate || startDate < defaultStartDate || !rooms || !bookings) return [];
 
         const availableRooms = [];
         for (const room of rooms) {
             const {id} = room;
-            const booking = bookings.find(booking => Number(booking["roomId"]) === Number(id));
-            if (booking) {
-                const {start, end} = booking;
-                if ((new Date(start) <= startDate && new Date(end) <= startDate) || (new Date(start) >= endDate && new Date(end) >= endDate)) {
-                    availableRooms.push(room);
-                }
+            const roomWithId = bookings.filter(booking => booking["roomId"].toString() === id.toString());
+            if (roomWithId.length !== 0) {
+                roomWithId.forEach(booking => {
+                    let {start, end} = booking;
+                    start = new Date(new Date(start).setHours(0, 0, 0, 0));
+                    end = new Date(new Date(end).setHours(0, 0, 0, 0));
+                    if ((new Date(start) < startDate && new Date(end) <= startDate) || (new Date(start) >= endDate && new Date(end) > endDate)) {
+                        availableRooms.push(room);
+                        console.log(room);
+                    }
+                });
             } else {
                 availableRooms.push(room);
             }
@@ -87,9 +121,19 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         return availableRooms;
     }
 
+    function getTotalCost() {
+        let totalPrice = 0;
+        Object.values(selectedBookings).forEach(type => type.forEach(booking => {
+            totalPrice += booking.cost;
+        }));
+        totalPrice *= numberOfNights;
+        return totalPrice;
+    }
+
     const value = {
         rooms,
         bookings,
+        guests,
         availableRooms,
         uniqueRooms,
         startDate,
@@ -98,8 +142,9 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         setEndDate,
         loading,
         numberOfNights,
-        allBookingPrices,
-        setAllBookingPrices
+        selectedBookings,
+        setSelectedBookings,
+        totalCost
     };
 
     return <RoomsAndBookingsContext.Provider value={value}>
