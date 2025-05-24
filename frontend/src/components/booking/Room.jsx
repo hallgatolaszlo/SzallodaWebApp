@@ -3,20 +3,27 @@ import {useState, createElement, useEffect} from "react";
 import _ from "lodash";
 import {useRoomsAndBookingsContext} from "../../contexts/RoomsAndBookingsContext.jsx";
 
-function Room({room, availableRooms}) {
-    const {rooms} = useRoomsAndBookingsContext();
+function Room({room}) {
+    const {
+        rooms,
+        availableRooms,
+        uniqueRooms,
+        setAllBookingPrices,
+        numberOfNights
+    } = useRoomsAndBookingsContext();
 
     const {name, price, capacity, image} = room;
     const priceChangePerPerson = 0.05;
     const [numberOfRooms, setNumberOfRooms] = useState(0);
     const [guestsPerRoom, setGuestsPerRoom] = useState({});
+    const [pricePerNight, setPricePerNight] = useState(0);
     const [fullPrice, setFullPrice] = useState(0);
 
     useEffect(() => {
             const newGuestsPerRoom = {};
 
             for (let i = 1; i <= numberOfRooms; i++) {
-                if ((i) in guestsPerRoom)
+                if (i in guestsPerRoom)
                     newGuestsPerRoom[i] = guestsPerRoom[i];
                 else {
                     newGuestsPerRoom[i] = 1;
@@ -29,16 +36,39 @@ function Room({room, availableRooms}) {
         [numberOfRooms]);
 
     useEffect(() => {
-        let newFullPrice = price * numberOfRooms;
+        let newPrice = price * numberOfRooms;
 
         Object.entries(guestsPerRoom).map((keyValuePair) => {
             const guestCount = keyValuePair[1];
 
-            newFullPrice += guestCount > 1 ? (guestCount - 1) * price * priceChangePerPerson : 0;
+            newPrice += guestCount > 1 ? (guestCount - 1) * price * priceChangePerPerson : 0;
         });
 
-        setFullPrice(newFullPrice);
-    }, [price, numberOfRooms, guestsPerRoom]);
+        setPricePerNight(newPrice);
+
+        newPrice *= numberOfNights;
+
+        setFullPrice(newPrice);
+
+        let index = -1;
+
+        for (let i = 0; i < uniqueRooms.length; i++) {
+            if (uniqueRooms[i].name === name) {
+                index = i;
+            }
+        }
+
+        setAllBookingPrices((prev) => {
+            const newArray = [...prev];
+            for (let i = 0; i < newArray.length; i++) {
+                if (i === index) {
+                    newArray[i] = newPrice;
+                }
+            }
+            return newArray;
+        });
+
+    }, [price, numberOfRooms, guestsPerRoom, numberOfNights, uniqueRooms, name, setAllBookingPrices]);
 
     const allOfThisType = rooms.filter(room => room.name === name);
     const availableOfThisType = availableRooms.filter(room => room.name === name);
@@ -47,7 +77,7 @@ function Room({room, availableRooms}) {
         <div className="room-container">
             <div className="room-title-bar">
                 <p className="room-name">{name}</p>
-                <p className="room-capacity">{"For maximum " + capacity + " people"}</p>
+                <p className="room-capacity">{capacity > 1 ? "For maximum " + capacity + " people" : "For maximum " + capacity + " person"}</p>
             </div>
             <div className="room-image-container">
                 <img className="room-image" src={image} alt={"Picture of " + name}/>
@@ -69,7 +99,8 @@ function Room({room, availableRooms}) {
                                 key: number,
                             }, number))}
                     </select>
-                    <span>{"+ $" + new Intl.NumberFormat("US-us").format(numberOfRooms * price)}</span>
+                    {numberOfRooms === 0 ? "" :
+                        <span>{"+ $" + new Intl.NumberFormat("US-us").format(numberOfRooms * price)}</span>}
                 </div>
                 <div className="room-guests-per-room-container">
                     <p>{1 in guestsPerRoom ? "Guests per Room:" : ""}</p>
@@ -90,6 +121,13 @@ function Room({room, availableRooms}) {
                         );
                     })}
                 </div>
+                {numberOfRooms === 0 ? ""
+                    :
+                    <div className="room-total-price-container">
+                        <p>{"Price per night: $" + new Intl.NumberFormat("US-us").format(pricePerNight)}</p>
+                        <p>{"For " + (numberOfNights + 1) + " days / " + numberOfNights + " night(s)"}</p>
+                    </div>
+                }
             </div>
         </div>
     );
