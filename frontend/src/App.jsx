@@ -10,26 +10,31 @@ import GalleryLobbies from "./pages/GalleryLobbies.jsx";
 import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import {RoomsAndBookingsContextProvider} from "./contexts/RoomsAndBookingsContext.jsx";
+import {LoginContextProvider} from "./contexts/LoginContext.jsx";
+import MyBookings from "./pages/MyBookings.jsx";
 
 function App() {
 
     return (
         <div>
-            <RoomsAndBookingsContextProvider>
-                <Navbar/>
-                <main>
-                    <Routes>
-                        <Route path="/" element={<Home/>}></Route>
-                        <Route path="/login" element={<Login/>}></Route>
-                        <Route path="/booking" element={<Booking/>}></Route>
-                        <Route path="/admin" element={<Admin/>}></Route>
-                        <Route path="/register" element={<Register/>}></Route>
-                        <Route path="/gallery" element={<Gallery/>}></Route>
-                        <Route path="/gallery-lobbies" element={<GalleryRooms/>}></Route>
-                        <Route path="/gallery-rooms" element={<GalleryLobbies/>}></Route>
-                    </Routes>
-                </main>
-            </RoomsAndBookingsContextProvider>
+            <LoginContextProvider>
+                <RoomsAndBookingsContextProvider>
+                    <Navbar/>
+                    <main>
+                        <Routes>
+                            <Route path="/" element={<Home/>}></Route>
+                            <Route path="/login" element={<Login/>}></Route>
+                            <Route path="/booking" element={<Booking/>}></Route>
+                            <Route path="/admin" element={<Admin/>}></Route>
+                            <Route path="/register" element={<Register/>}></Route>
+                            <Route path="/myBookings" element={<MyBookings/>}></Route>
+                            <Route path="/gallery" element={<Gallery/>}></Route>
+                            <Route path="/gallery-lobbies" element={<GalleryRooms/>}></Route>
+                            <Route path="/gallery-rooms" element={<GalleryLobbies/>}></Route>
+                        </Routes>
+                    </main>
+                </RoomsAndBookingsContextProvider>
+            </LoginContextProvider>
         </div>
     );
 }
