@@ -1,0 +1,13 @@
+.marketing-section {
+    width: 80vw;
+    display: flex;
+}
+
+.text-container {
+    width: 60%;
+    color: var(--color1);
+}
+
+.text-container > h1 {
+    font-weight: 400;
+}
