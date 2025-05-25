@@ -1,5 +1,6 @@
 import {createContext, useState, useContext, useEffect} from "react";
 import {getFromAPI} from "../services/api.js";
+import {addDays} from "date-fns";
 
 const RoomsAndBookingsContext = createContext(null);
 
@@ -13,7 +14,7 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     const [guests, setGuests] = useState([null]);
 
     const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
-    const defaultEndDate = new Date(defaultStartDate.getFullYear(), defaultStartDate.getMonth(), defaultStartDate.getDate() + 1);
+    const defaultEndDate = new Date(addDays(defaultStartDate, 1));
 
     const [startDate, setStartDate] = useState(defaultStartDate);
     const [endDate, setEndDate] = useState(defaultEndDate);
@@ -93,27 +94,22 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         return Math.floor(diffTime / (1000 * 60 * 60 * 24));
     }
 
-    window.onclick = () => {
-        console.log();
-    };
-
     function getAvailableRooms() {
         if (startDate >= endDate || startDate < defaultStartDate || !rooms || !bookings) return [];
 
         const availableRooms = [];
         for (const room of rooms) {
             const {id} = room;
-            const roomWithId = bookings.filter(booking => booking["roomId"].toString() === id.toString());
-            if (roomWithId.length !== 0) {
-                roomWithId.forEach(booking => {
+            const bookingsOfRoomId = bookings.filter(booking => booking["roomId"].toString() === id.toString());
+            if (bookingsOfRoomId.length !== 0) {
+                if (bookingsOfRoomId.every(booking => {
                     let {start, end} = booking;
                     start = new Date(new Date(start).setHours(0, 0, 0, 0));
                     end = new Date(new Date(end).setHours(0, 0, 0, 0));
-                    if ((new Date(start) < startDate && new Date(end) <= startDate) || (new Date(start) >= endDate && new Date(end) > endDate)) {
-                        availableRooms.push(room);
-                        console.log(room);
-                    }
-                });
+                    return (start < startDate && end <= startDate) || (start >= endDate && end > endDate);
+                })) {
+                    availableRooms.push(room);
+                }
             } else {
                 availableRooms.push(room);
             }

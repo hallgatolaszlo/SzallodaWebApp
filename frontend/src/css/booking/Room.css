@@ -1,104 +1,82 @@
 .room-container {
     box-sizing: border-box;
-    position: relative;
-    border: 2px solid var(--color1);
-    border-radius: 5px;
-    margin: 10px;
-    display: grid;
+    color: var(--color1);
+    max-width: 400px;
     width: 100%;
-    max-width: 600px;
     height: 100%;
+    border: 2px solid var(--dark-gold);
+    border-radius: 20px;
+    gap: 25px;
+    padding: 20px;
+    display: grid;
     grid-template:
-    [header-left] "head head" auto [header-right]
-    [main-left] "img main" auto [main-right]
-    / 1fr 2fr;
+    [header-left] "head" auto [header-right]
+    [img-left] "img" auto [img-right]
+    [main-left] "main" auto [main-right]
 }
 
 .room-title-bar {
-    position: relative;
+    grid-area: head;
+    color: var(--color1);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    line-height: 1.5;
-    text-indent: 10px;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color1);
-    color: var(--white);
-    grid-area: head;
-}
-
-.room-title-bar > p:nth-child(1) {
-    padding-top: 10px;
-    font-family: var(--title-font), serif;
-}
-
-.room-title-bar > p:nth-child(2) {
-    padding-bottom: 10px;
-    font-family: var(--title-font), serif;
+    align-items: center;
 }
 
 .room-name {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 2rem;
+}
 
+.room-capacity {
+    font-size: 1.4rem;
 }
 
 .room-image-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 100%;
     grid-area: img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .room-image {
     object-fit: cover;
     width: 100%;
-    border: 2px solid var(--color1);
-    border-top: none;
+    border-radius: 15px;
+    border: 2px solid var(--dark-gold);
 }
 
 .room-main {
+    grid-area: main;
+    font-size: 1.2rem;
+    gap: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
-    border-left: 2px solid var(--color1);
-    grid-area: main;
-    padding-left: 10px;
-}
-
-.room-number-of-rooms-container {
-    margin-top: 10px;
 }
 
 .room-number-of-rooms-container,
 .room-guests-per-current-room-container {
+    gap: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .room-guests-per-current-room-container > select,
 .room-number-of-rooms-container > select {
-    width: 2rem;
-    height: 1.5rem;
-    font-size: 1rem;
+    width: 3rem;
+    height: fit-content;
+    padding-left: 5px;
+    font-size: 1.2rem;
     font-weight: bold;
-    text-align: center;
     color: var(--color1);
-    background-color: var(--white);
-    border: 2px solid var(--color1);
+    background-color: var(--white2);
+    border: 1px solid var(--color1);
     border-radius: 5px;
     cursor: pointer;
-    appearance: none;
 }
 
 .room-number-of-rooms-container > span,
@@ -113,10 +91,7 @@
 }
 
 .room-price-container {
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    text-align: center;
 }
 
 .room-price {
@@ -125,8 +100,7 @@
     color: var(--color1);
 }
 
-.room-total-price-container {
-    margin-bottom: 10px;
+.room-price-per-night-container {
     display: flex;
     flex-direction: column;
     gap: 10px;

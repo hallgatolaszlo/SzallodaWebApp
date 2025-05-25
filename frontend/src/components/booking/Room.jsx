@@ -1,7 +1,8 @@
 import "../../css/booking/Room.css";
-import {useState, createElement, useEffect} from "react";
+import {useState, useEffect} from "react";
 import _ from "lodash";
 import {useRoomsAndBookingsContext} from "../../contexts/RoomsAndBookingsContext.jsx";
+import {format} from "date-fns";
 
 function Room({room}) {
     const {
@@ -101,9 +102,6 @@ function Room({room}) {
             </div>
             <div className="room-image-container">
                 <img className="room-image" src={image} alt={"Picture of " + name}/>
-                <div className="room-price-container">
-                    <p className="room-price">{"$" + new Intl.NumberFormat("US-us").format(fullPrice)}</p>
-                </div>
             </div>
             <div className="room-main">
                 <div className="room-number-of-rooms-container">
@@ -112,17 +110,12 @@ function Room({room}) {
                             onChange={(e) => setNumberOfRooms(Number(e.target.value))}>
                         {_.range(0, allOfThisType.length + 1).map(number => number > availableOfThisType.length
                             ?
-                            createElement("option", {
-                                key: number,
-                                disabled: true,
-                            }, number)
+                            <option key={number} disabled>{number}</option>
                             :
-                            createElement("option", {
-                                key: number,
-                            }, number))}
+                            <option key={number}>{number}</option>)}
                     </select>
                     {numberOfRooms === 0 ? "" :
-                        <span>{"+ $" + new Intl.NumberFormat("US-us").format(numberOfRooms * price)}</span>}
+                        <span>{"+ $" + new Intl.NumberFormat("en-US").format(numberOfRooms * price)}</span>}
                 </div>
                 <div className="room-guests-per-room-container">
                     <p>{1 in guestsPerRoom ? "Guests per Room:" : ""}</p>
@@ -136,21 +129,24 @@ function Room({room}) {
                                     ...prevState,
                                     [roomNumber]: Number(e.target.value)
                                 }))}>
-                                    {_.range(1, capacity + 1).map(number => createElement("option", {key: number}, number))}
+                                    {_.range(1, capacity + 1).map(number => <option key={number}>{number}</option>)}
                                 </select>
-                                <span>{guestCount > 1 ? "+ $" + new Intl.NumberFormat("US-us").format((guestCount - 1) * price * priceChangePerPerson) : ""}</span>
+                                <span>{guestCount > 1 ? "+ $" + new Intl.NumberFormat("en-US").format((guestCount - 1) * price * priceChangePerPerson) : ""}</span>
                             </div>
                         );
                     })}
                 </div>
                 {numberOfRooms === 0 ? ""
                     :
-                    <div className="room-total-price-container">
-                        <p>{"Price per night: $" + new Intl.NumberFormat("US-us").format(pricePerNight)}</p>
+                    <div className="room-price-per-night-container">
+                        <p>{"Price per night: $" + new Intl.NumberFormat("en-US").format(pricePerNight)}</p>
                         <p>{"For " + (numberOfNights + 1) + " days / " + numberOfNights + " night(s)"}</p>
-                        <p>{"From: " + startDate.toLocaleDateString() + " - Until: " + endDate.toLocaleDateString()}</p>
+                        <p>{"From: " + format(startDate, "yyyy/MM/dd") + " - Until: " + format(endDate, "yyyy/MM/dd")}</p>
                     </div>
                 }
+                <div className="room-price-container">
+                    <p className="room-price">{"$" + new Intl.NumberFormat("en-US").format(fullPrice)}</p>
+                </div>
             </div>
         </div>
     );

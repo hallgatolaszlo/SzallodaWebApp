@@ -18,14 +18,17 @@ function ContactDetails() {
         const phoneRegex = /\b(?:\+?(\d{1,3})[\s.-]?)?(?:\(?\d{2,4}\)?[\s.-]?)?\d{3,4}[\s.-]?\d{4}\b/;
 
         if (name === '' || email === '' || phone === '') {
+            alert("Please fill in all fields!");
             return;
         }
 
         if (!emailRegex.test(email)) {
+            alert("Please enter a valid email!");
             return;
         }
 
         if (!phoneRegex.test(phone)) {
+            alert("Please enter a valid phone number!");
             return;
         }
 
@@ -67,14 +70,16 @@ function ContactDetails() {
         <div className="user-contact-details-container">
             <h1>Contact Details</h1>
             <div className="user-contact-details-form">
-                <label>Name: </label>
-                <input value={name} type="text" onChange={(e) => setName(e.target.value)}/>
-                <span>{}</span>
-                <label>Email: </label>
-                <input value={email} type="email" onChange={(e) => setEmail(e.target.value)}/>
-                <label>Phone: </label>
-                <input value={phone} type="tel" onChange={(e) => setPhone(e.target.value)}/>
-                <button onClick={submitBooking}>Confirm</button>
+                <label className="user-contact-details-form-label">Name: </label>
+                <input className="user-contact-details-form-input" value={name} type="text"
+                       onChange={(e) => setName(e.target.value)}/>
+                <label className="user-contact-details-form-label">Email: </label>
+                <input className="user-contact-details-form-input" value={email} type="email"
+                       onChange={(e) => setEmail(e.target.value)}/>
+                <label className="user-contact-details-form-label">Phone: </label>
+                <input className="user-contact-details-form-input" value={phone} type="tel"
+                       onChange={(e) => setPhone(e.target.value)}/>
+                <button className="user-contact-details-form-button" onClick={submitBooking}>Book room(s)</button>
             </div>
         </div>
     );

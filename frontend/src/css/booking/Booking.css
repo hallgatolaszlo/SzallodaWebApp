@@ -1,37 +1,113 @@
 .booking-container {
     box-sizing: border-box;
-    display: flex;
     width: 100vw;
+    padding: 200px 30px 30px 30px;
+    background-color: var(--white2);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    margin-top: 175px;
+    gap: 40px;
+    color: var(--color1);
 }
 
 .rooms-grid {
-    position: relative;
     width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
 }
 
 .booking-query-container {
-    position: relative;
     width: 100%;
-    height: 60px;
-    margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    height: 80px;
 }
 
 .datepicker-container {
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 5px;
+}
+
+.datepicker-custom-input {
+    text-align: center;
+    font-size: 1.3rem;
+    border: 2px solid var(--dark-gold);
+    padding: 10px;
+    background-color: var(--white2);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.booking-total-cost {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.booking-login-warning {
+    color: red;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.booking-hr {
+    width: 100vw;
+    border: 1px solid var(--dark-gold);
+}
+
+
+/* DatePicker Custom Styles */
+.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {
+    background-color: var(--dark-gold) !important;
+    color: black !important;
+    opacity: 0.75 !important;
+    border-radius: 0.3rem !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: var(--dark-gold) !important;
+    color: black !important;
+    opacity: 1 !important;
+    border-radius: 0.3rem !important;
+}
+
+.react-datepicker__day--in-preview-range:not(
+    .react-datepicker__day--in-range,
+    .react-datepicker__day--keyboard-selected
+) {
+    background-color: var(--dark-gold) !important;
+    color: black !important;
+    opacity: 0.75 !important;
+    border-radius: 0.3rem !important;
+}
+
+.react-datepicker__day:hover {
+    opacity: 1 !important;
+    background-color: var(--dark-gold) !important;
+    color: black !important;
+    border-radius: 0.3rem !important;
+}
+
+.react-datepicker__day--in-range {
+    background-color: var(--dark-gold) !important;
+    color: black !important;
+    opacity: 0.75 !important;
+    border-radius: 0.3rem !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+    background-color: var(--dark-gold) !important;
+    color: black !important;
+    opacity: 1 !important;
+    border-radius: 0.3rem !important;
 }
