@@ -8,6 +8,9 @@
     --color4: #95c2e3;
     --color5: #fff0d3;
     --white: #fff;
+    --white2: #F6F7F3;
+    --dark-gold: #A26E20;
+    --gold: #CE9425;
     --vibrant-gold: #ffd700;
     --deeper-gold: #f5bf03;
     --base-font: 'Roboto', sans-serif;
@@ -22,4 +25,8 @@
 
 body {
     overflow-x: hidden;
+}
+
+main {
+    background: var(--white2);
 }

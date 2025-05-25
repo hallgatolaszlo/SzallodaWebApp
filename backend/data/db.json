@@ -141,13 +141,6 @@
       "email": "rab.mihaly@example.com",
       "phone": "+36205556677",
       "accountId": 4
-    },
-    {
-      "id": 5,
-      "name": "asdd",
-      "email": "asdd@asd.asd",
-      "phone": "123123123",
-      "accountId": "2"
     }
   ],
   "bookings": [
@@ -186,15 +179,6 @@
       "start": "2025-09-05",
       "end": "2025-09-06",
       "cost": 500
-    },
-    {
-      "id": "bd63",
-      "roomId": "1",
-      "guestId": 5,
-      "guestCount": 1,
-      "start": "2025-05-24",
-      "end": "2025-05-25",
-      "cost": 2000
     }
   ],
   "ratings": [
