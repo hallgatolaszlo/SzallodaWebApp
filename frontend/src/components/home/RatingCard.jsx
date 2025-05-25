@@ -1,6 +1,6 @@
 import '../../css/home/RatingCard.css';
 
-function RatingCards({rate}) {
+function RatingCard({rate}) {
     const {username, text} = rate;
 
     return (
@@ -13,4 +13,4 @@ function RatingCards({rate}) {
     );
 }
 
-export default RatingCards;
+export default RatingCard;
