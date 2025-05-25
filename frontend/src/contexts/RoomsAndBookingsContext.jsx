@@ -94,6 +94,10 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         return Math.floor(diffTime / (1000 * 60 * 60 * 24));
     }
 
+    window.onclick = () => {
+        console.log();
+    };
+
     function getAvailableRooms() {
         if (startDate >= endDate || startDate < defaultStartDate || !rooms || !bookings) return [];
 

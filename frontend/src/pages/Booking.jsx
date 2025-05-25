@@ -13,7 +13,7 @@ function Booking() {
     const {isLoggedIn} = useLoginContext();
 
     const [hoverDate, setHoverDate] = useState(null);
-
+  
     const {
         availableRooms,
         uniqueRooms,
