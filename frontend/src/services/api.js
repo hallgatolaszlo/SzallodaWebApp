@@ -20,3 +20,34 @@ export async function postAccounts(username, password) {
     });
     return response.json();
 }
+
+export async function postGuest(guestData) {
+    const {id, name, email, phone, accountId} = guestData;
+    const response = await fetch(`${BASE_URL}guests`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({id: id, name: name, email: email, phone: phone, accountId: accountId}),
+    });
+    return response.json();
+}
+
+export async function postBooking(bookingData) {
+    const {roomId, guestId, guestCount, cost, start, end} = bookingData;
+    const response = await fetch(`${BASE_URL}bookings`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            roomId: roomId,
+            guestId: guestId,
+            guestCount: guestCount,
+            start: start,
+            end: end,
+            cost: cost,
+        }),
+    });
+    return response.json();
+}

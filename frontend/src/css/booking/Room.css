@@ -112,10 +112,16 @@
     gap: 10px;
 }
 
-.room-price {
+.room-price-container {
     margin: 10px 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.room-price {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: var(--color1);
 }
 

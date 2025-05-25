@@ -7,9 +7,12 @@ function Room({room}) {
     const {
         rooms,
         availableRooms,
+        startDate,
+        endDate,
         uniqueRooms,
-        setAllBookingPrices,
-        numberOfNights
+        numberOfNights,
+        selectedBookings,
+        setSelectedBookings,
     } = useRoomsAndBookingsContext();
 
     const {name, price, capacity, image} = room;
@@ -18,6 +21,46 @@ function Room({room}) {
     const [guestsPerRoom, setGuestsPerRoom] = useState({});
     const [pricePerNight, setPricePerNight] = useState(0);
     const [fullPrice, setFullPrice] = useState(0);
+
+    const allOfThisType = rooms.filter(room => room.name === name);
+    const [availableOfThisType, setAvailableOfThisType] = useState([]);
+
+    useEffect(() => {
+        setAvailableOfThisType(availableRooms.filter(room => room.name === name));
+    }, [availableRooms]);
+
+    useEffect(() => {
+        if (selectedBookings[name] === undefined) return;
+
+        setSelectedBookings(prev => {
+            const prevSelectedBookings = {...prev};
+
+            while (prevSelectedBookings[name].length > numberOfRooms) {
+                prevSelectedBookings[name].pop();
+            }
+
+            const startDateLocaleString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1).toString().padStart(2, "0") + "-" + startDate.getDate();
+            const endDateLocaleString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1).toString().padStart(2, "0") + "-" + endDate.getDate();
+
+            for (let i = 0; i < numberOfRooms; i++) {
+                if (prevSelectedBookings[name][i]) {
+                    prevSelectedBookings[name][i]["guestCount"] = guestsPerRoom[i + 1];
+                    prevSelectedBookings[name][i]["start"] = startDateLocaleString;
+                    prevSelectedBookings[name][i]["end"] = endDateLocaleString;
+                    prevSelectedBookings[name][i]["cost"] = price + (guestsPerRoom[i + 1] - 1) * price * priceChangePerPerson;
+                } else {
+                    prevSelectedBookings[name].push({
+                        "roomId": availableOfThisType[i].id,
+                        "guestCount": guestsPerRoom[i + 1],
+                        "start": startDateLocaleString,
+                        "end": endDateLocaleString,
+                        "cost": price + (guestsPerRoom[i + 1] - 1) * price * priceChangePerPerson
+                    });
+                }
+            }
+            return prevSelectedBookings;
+        });
+    }, [numberOfRooms, guestsPerRoom, startDate, endDate, availableOfThisType, name]);
 
     useEffect(() => {
             const newGuestsPerRoom = {};
@@ -40,7 +83,6 @@ function Room({room}) {
 
         Object.entries(guestsPerRoom).map((keyValuePair) => {
             const guestCount = keyValuePair[1];
-
             newPrice += guestCount > 1 ? (guestCount - 1) * price * priceChangePerPerson : 0;
         });
 
@@ -49,29 +91,7 @@ function Room({room}) {
         newPrice *= numberOfNights;
 
         setFullPrice(newPrice);
-
-        let index = -1;
-
-        for (let i = 0; i < uniqueRooms.length; i++) {
-            if (uniqueRooms[i].name === name) {
-                index = i;
-            }
-        }
-
-        setAllBookingPrices((prev) => {
-            const newArray = [...prev];
-            for (let i = 0; i < newArray.length; i++) {
-                if (i === index) {
-                    newArray[i] = newPrice;
-                }
-            }
-            return newArray;
-        });
-
-    }, [price, numberOfRooms, guestsPerRoom, numberOfNights, uniqueRooms, name, setAllBookingPrices]);
-
-    const allOfThisType = rooms.filter(room => room.name === name);
-    const availableOfThisType = availableRooms.filter(room => room.name === name);
+    }, [price, numberOfRooms, guestsPerRoom, numberOfNights, uniqueRooms, name]);
 
     return (
         <div className="room-container">
@@ -81,7 +101,9 @@ function Room({room}) {
             </div>
             <div className="room-image-container">
                 <img className="room-image" src={image} alt={"Picture of " + name}/>
-                <p className="room-price">{"$" + new Intl.NumberFormat("US-us").format(fullPrice)}</p>
+                <div className="room-price-container">
+                    <p className="room-price">{"$" + new Intl.NumberFormat("US-us").format(fullPrice)}</p>
+                </div>
             </div>
             <div className="room-main">
                 <div className="room-number-of-rooms-container">
@@ -126,6 +148,7 @@ function Room({room}) {
                     <div className="room-total-price-container">
                         <p>{"Price per night: $" + new Intl.NumberFormat("US-us").format(pricePerNight)}</p>
                         <p>{"For " + (numberOfNights + 1) + " days / " + numberOfNights + " night(s)"}</p>
+                        <p>{"From: " + startDate.toLocaleDateString() + " - Until: " + endDate.toLocaleDateString()}</p>
                     </div>
                 }
             </div>
