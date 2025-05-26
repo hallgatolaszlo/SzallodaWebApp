@@ -16,6 +16,7 @@ function RegForm() {
         async function fetchAccounts() {
             return await getFromAPI("accounts");
         }
+
         fetchAccounts().then(data => setAccounts(data));
     }, []);
 
@@ -25,24 +26,24 @@ function RegForm() {
         if (usernameExists) {
             alert("Username already taken!");
             setUsername('');
-        }
-        else {
+        } else {
             if (password !== cpassword) {
                 alert("Passwords do not match!");
-            }
-            else {
+            } else {
                 postAccounts(username, password)
                     .then((data) => {
                         console.log(data);
                         navigate("/login", {replace: true});
                     })
-                    .catch(error => {console.log(error)})
+                    .catch(error => {
+                        console.log(error)
+                    })
 
             }
         }
     }
 
-    function returnToLoginPage () {
+    function returnToLoginPage() {
         navigate("/login", {replace: true});
     }
 
@@ -55,13 +56,13 @@ function RegForm() {
                 <div className="reg-form-block-header">
                     <p>Username</p>
                     <input placeholder="New username..."
-                           className="input-username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}></input>
+                           className="input-username-reg"
+                           value={username}
+                           onChange={(e) => setUsername(e.target.value)}></input>
                     <p>Password</p>
                     <input type="password"
                            placeholder="Password..."
-                           className="input-password"
+                           className="input-password-reg"
                            value={password}
                            onChange={(e) => setPassword(e.target.value)}><
                     /input>
@@ -69,8 +70,8 @@ function RegForm() {
                     <input type="password"
                            placeholder="Confirm password..."
                            className="input-password-confirm"
-                        value={cpassword}
-                        onChange={(e) => setCpassword(e.target.value)}/>
+                           value={cpassword}
+                           onChange={(e) => setCpassword(e.target.value)}/>
                 </div>
 
                 <div className="reg-form-block-buttons">

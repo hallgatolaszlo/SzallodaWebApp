@@ -4,7 +4,9 @@ import RegForm from "../components/register/RegForm.jsx";
 function Register() {
     return (
         <div className='register-page-container'>
-            <RegForm/>
+            <div className="form-container-finale">
+                <RegForm/>
+            </div>
         </div>
     )
 }
