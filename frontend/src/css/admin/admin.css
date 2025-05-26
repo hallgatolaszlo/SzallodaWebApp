@@ -1,6 +1,10 @@
-.register-page-container {
+.admin-page-container {
     display: flex;
     justify-content: center;
     background: var(--white2);
     height: 100vh;
+}
+
+.admin-not-logged-in {
+    padding-top: 200px;
 }

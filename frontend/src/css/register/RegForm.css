@@ -1,3 +1,25 @@
+.form-block {
+    height: fit-content;
+}
+
+.input-username-reg {
+    margin-bottom: 30px;
+    height: 2em;
+    color: var(--color1);
+    border: 2px solid var(--color1);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.input-password-reg {
+    margin-bottom: 15px;
+    height: 2em;
+    color: var(--color1);
+    border: 2px solid var(--color1);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
 .input-password-confirm {
     height: 2em;
     color: var(--color1);
