@@ -28,40 +28,42 @@ function Room({room}) {
 
     useEffect(() => {
         setAvailableOfThisType(availableRooms.filter(room => room.name === name));
-    }, [availableRooms]);
+    }, [availableRooms, name]);
 
     useEffect(() => {
-        if (selectedBookings[name] === undefined) return;
+            if (selectedBookings[name] === undefined) return;
 
-        setSelectedBookings(prev => {
-            const prevSelectedBookings = {...prev};
+            setSelectedBookings(prev => {
+                const prevSelectedBookings = {...prev};
 
-            while (prevSelectedBookings[name].length > numberOfRooms) {
-                prevSelectedBookings[name].pop();
-            }
-
-            const startDateLocaleString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1).toString().padStart(2, "0") + "-" + startDate.getDate();
-            const endDateLocaleString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1).toString().padStart(2, "0") + "-" + endDate.getDate();
-
-            for (let i = 0; i < numberOfRooms; i++) {
-                if (prevSelectedBookings[name][i]) {
-                    prevSelectedBookings[name][i]["guestCount"] = guestsPerRoom[i + 1];
-                    prevSelectedBookings[name][i]["start"] = startDateLocaleString;
-                    prevSelectedBookings[name][i]["end"] = endDateLocaleString;
-                    prevSelectedBookings[name][i]["cost"] = price + (guestsPerRoom[i + 1] - 1) * price * priceChangePerPerson;
-                } else {
-                    prevSelectedBookings[name].push({
-                        "roomId": availableOfThisType[i].id,
-                        "guestCount": guestsPerRoom[i + 1],
-                        "start": startDateLocaleString,
-                        "end": endDateLocaleString,
-                        "cost": price + (guestsPerRoom[i + 1] - 1) * price * priceChangePerPerson
-                    });
+                while (prevSelectedBookings[name].length > numberOfRooms) {
+                    prevSelectedBookings[name].pop();
                 }
-            }
-            return prevSelectedBookings;
-        });
-    }, [numberOfRooms, guestsPerRoom, startDate, endDate, availableOfThisType, name]);
+
+                const startDateLocaleString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1).toString().padStart(2, "0") + "-" + startDate.getDate();
+                const endDateLocaleString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1).toString().padStart(2, "0") + "-" + endDate.getDate();
+
+                for (let i = 0; i < numberOfRooms; i++) {
+                    if (prevSelectedBookings[name][i]) {
+                        prevSelectedBookings[name][i]["guestCount"] = guestsPerRoom[i + 1];
+                        prevSelectedBookings[name][i]["start"] = startDateLocaleString;
+                        prevSelectedBookings[name][i]["end"] = endDateLocaleString;
+                        prevSelectedBookings[name][i]["cost"] = price + (guestsPerRoom[i + 1] - 1) * price * priceChangePerPerson;
+                    } else {
+                        prevSelectedBookings[name].push({
+                            "roomId": availableOfThisType[i].id,
+                            "guestCount": guestsPerRoom[i + 1],
+                            "start": startDateLocaleString,
+                            "end": endDateLocaleString,
+                            "cost": price + (guestsPerRoom[i + 1] - 1) * price * priceChangePerPerson
+                        });
+                    }
+                }
+                return prevSelectedBookings;
+            });
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [numberOfRooms, guestsPerRoom, startDate, endDate, availableOfThisType, name]);
 
     useEffect(() => {
             const newGuestsPerRoom = {};

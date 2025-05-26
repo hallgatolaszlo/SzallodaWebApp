@@ -124,9 +124,9 @@
     {
       "id": "2",
       "name": "Hallgató László",
-      "email": "hallgato.laszlo@example.com",
-      "phone": "+36207654321",
-      "accountId": 2
+      "email": "hallgato.laszlo1124@gmail.com",
+      "phone": "06202689351",
+      "accountId": "2"
     },
     {
       "id": "3",
@@ -178,6 +178,24 @@
       "guestCount": 1,
       "start": "2025-09-05",
       "end": "2025-09-06",
+      "cost": 500
+    },
+    {
+      "id": "4474",
+      "roomId": "1",
+      "guestId": 5,
+      "guestCount": 1,
+      "start": "2025-05-26",
+      "end": "2025-05-27",
+      "cost": 2000
+    },
+    {
+      "id": "987a",
+      "roomId": "11",
+      "guestId": "2",
+      "guestCount": 1,
+      "start": "2025-05-26",
+      "end": "2025-05-27",
       "cost": 500
     }
   ],

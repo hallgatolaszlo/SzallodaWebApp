@@ -17,7 +17,7 @@ export const LoginContextProvider = ({children}) => {
             setRole(accountData.role);
             setUserAccountId(accountData.accountId);
         }
-    }, []);
+    }, [isLoggedIn]);
 
     const login = (data) => {
         sessionStorage.setItem("accountData", JSON.stringify(data));

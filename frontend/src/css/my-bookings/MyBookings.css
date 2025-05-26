@@ -1,0 +1,13 @@
+.myBookings-container {
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    padding: 200px 30px 30px 30px;
+    background-color: var(--white2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    color: var(--color1);
+}
