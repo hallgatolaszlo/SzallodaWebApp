@@ -4,7 +4,9 @@ import '../css/login/Login.css'
 function Login() {
     return (
         <div className="login-page-container">
-            <Form/>
+            <div className="form-container-finale">
+                <Form/>
+            </div>
         </div>
     )
 }

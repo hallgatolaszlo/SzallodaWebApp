@@ -58,6 +58,11 @@ function Form() {
                        placeholder="Type your password here..."
                        type="password"
                        onChange={(e) => setPassword(e.target.value)}
+                       onKeyDown={(e) => {
+                           if (e.key === 'Enter') {
+                               checkAccounts()
+                           }
+                       }}
                 />
                 <button className="login-button" onClick={checkAccounts}>Log in</button>
             </div>
