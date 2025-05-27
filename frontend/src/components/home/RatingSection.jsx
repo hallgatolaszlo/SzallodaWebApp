@@ -32,22 +32,23 @@ function RatingSection() {
     }
 
     function scrollLeft() {
-        document.getElementById("media-scroller").scrollLeft -= document.getElementById("media-item").offsetWidth;
+        document.getElementById("media-scroller-container").scrollLeft -= document.getElementById("media-item").offsetWidth;
     }
 
     function scrollRight() {
-        document.getElementById("media-scroller").scrollLeft += document.getElementById("media-item").offsetWidth;
+        document.getElementById("media-scroller-container").scrollLeft += document.getElementById("media-item").offsetWidth;
     }
 
     return (
         <div className="section rating-section">
-            <div className="media-scroller-container">
-                <p onClick={scrollLeft} className="btn" id="btn-left"><FaArrowLeft/></p>
+            <h3>Why choose us?</h3>
+            <div id="media-scroller-container">
                 <div id="media-scroller">
                     {loading ? "Loading..." : getRatings().map(rate => <RatingCard key={rate.id} rate={rate}/>)}
                 </div>
-                <p onClick={scrollRight} className="btn" id="btn-right"><FaArrowRight/></p>
             </div>
+            <button onClick={scrollLeft} className="btn" id="btn-left"><FaArrowLeft/></button>
+            <button onClick={scrollRight} className="btn" id="btn-right"><FaArrowRight/></button>
         </div>
     );
 }
