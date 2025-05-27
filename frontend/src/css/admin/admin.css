@@ -8,3 +8,22 @@
 .admin-not-logged-in {
     padding-top: 200px;
 }
+
+.admin-page-sidebar {
+    position: absolute;
+    top:200px;
+    background: var(--white);
+}
+.admin-page-sidebar-selected-content {
+    border: 2px solid var(--color1);
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 200px;
+    margin-left:  250px;
+    background: var(--white2);
+}
+
+.admin-guest-card {
+    padding:  30px;
+}

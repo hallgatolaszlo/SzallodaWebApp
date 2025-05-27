@@ -5,6 +5,7 @@
     justify-content: start;
     padding-top: 160px;
     background: var(--white2);
+    height: 100vh;
 }
 
 .gallery-rooms-images-images {
