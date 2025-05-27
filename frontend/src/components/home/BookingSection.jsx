@@ -5,7 +5,7 @@ function BookingSection() {
     return (
         <div className="section booking-section">
             <div className="booking-section-img-container">
-                <img src="../../../public/home/marketingimage.jpg" alt="Lobby"/>
+                <img src="/home/marketingimage.jpg" alt="Lobby"/>
             </div>
             <div className="booking-section-text-container">
                 <h3>A Submerged Sanctuary Beneath the Atlantic</h3>

@@ -1,4 +1,4 @@
-import atlantis from '../../../public/home/atlantis.jpg';
+import atlantis from '../../assets/img/atlantis.jpg';
 import '../../css/home/HomeImage.css';
 
 function HomeImage() {
