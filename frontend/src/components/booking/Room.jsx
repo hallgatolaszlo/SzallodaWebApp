@@ -40,8 +40,8 @@ function Room({room}) {
                     prevSelectedBookings[name].pop();
                 }
 
-                const startDateLocaleString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1).toString().padStart(2, "0") + "-" + startDate.getDate();
-                const endDateLocaleString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1).toString().padStart(2, "0") + "-" + endDate.getDate();
+                const startDateLocaleString = startDate.getFullYear() + "-" + (startDate.getMonth() + 1).toString().padStart(2, "0") + "-" + (startDate.getDate()).toString().padStart(2, "0");
+                const endDateLocaleString = endDate.getFullYear() + "-" + (endDate.getMonth() + 1).toString().padStart(2, "0") + "-" + (endDate.getDate()).toString().padStart(2, "0");
 
                 for (let i = 0; i < numberOfRooms; i++) {
                     if (prevSelectedBookings[name][i]) {

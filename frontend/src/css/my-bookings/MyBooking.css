@@ -1,0 +1,41 @@
+.my-booking-collapsible-opened {
+    justify-items: center;
+}
+
+.my-booking-collapsible-closed {
+    justify-items: center;
+
+}
+
+.my-booking-collapsible-trigger-opened {
+    display: inline-block;
+    border: 2px solid #A26E20;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 5px;
+}
+
+.my-booking-collapsible-trigger-closed {
+    display: inline-block;
+    border: 2px solid #A26E20;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 5px;
+}
+
+.my-booking-collapsible-content-outer {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.my-booking-container {
+    width: 100%;
+}
+
+.my-booking-container img {
+    width: 100px;
+}
