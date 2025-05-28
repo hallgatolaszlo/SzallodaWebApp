@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {getFromAPI} from "../../services/api.js";
 import '../../css/login/Form.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {useLoginContext} from "../../contexts/LoginContext.jsx";
 
 function Form() {
@@ -9,7 +9,6 @@ function Form() {
     const [accounts, setAccounts] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -32,7 +31,6 @@ function Form() {
                     "accountId": account.id,
                     "role": account.role,
                 });
-                navigate("/", {replace: true});
             }
         });
 
@@ -60,7 +58,7 @@ function Form() {
                        onChange={(e) => setPassword(e.target.value)}
                        onKeyDown={(e) => {
                            if (e.key === 'Enter') {
-                               checkAccounts()
+                               checkAccounts();
                            }
                        }}
                 />

@@ -2,10 +2,11 @@ import Footer from "../components/Footer.jsx";
 import '../css/my-bookings/MyBookings.css';
 import {useRoomsAndBookingsContext} from "../contexts/RoomsAndBookingsContext.jsx";
 import {useLoginContext} from "../contexts/LoginContext.jsx";
-import {useEffect, useState} from "react";
+import {createElement, useEffect, useState} from "react";
 import MyBooking from "../components/my-bookings/MyBooking.jsx";
 import {format} from "date-fns";
 import ChangeContactDetails from "../components/my-bookings/ChangeContactDetails.jsx";
+import RatingSystem from "../components/my-bookings/RatingSystem.jsx";
 
 function MyBookings() {
     const {rooms, guests, bookings, loading} = useRoomsAndBookingsContext();
@@ -118,7 +119,11 @@ function MyBookings() {
                         }
                     })}
                 </div>
-                <p>{expired ? "" : "No expired bookings"}</p>
+                {expired ?
+                    createElement("div", {className: "rating-div"},
+                        [createElement("hr", {className: "booking-hr"})],
+                        createElement(RatingSystem))
+                    : createElement("p", null, "No expired bookings")}
             </div>
             <Footer/>
         </>

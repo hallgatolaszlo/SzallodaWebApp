@@ -1,0 +1,74 @@
+.star-rating {
+    --val: 0;
+    --size: 2rem;
+    height: var(--size);
+    width: calc(5 * var(--size));
+    appearance: none;
+    border: 0;
+    background: var(--white2);
+}
+
+/* Chrome and Safari */
+.star-rating::-webkit-slider-runnable-track {
+    height: 100%;
+    mask: conic-gradient(from -18deg at 61% 34.5%, #0000 108deg, #000 0) 0 0 / var(--size) var(--size),
+    conic-gradient(from 270deg at 39% 34.5%, #0000 108deg, #000 0) 0 0 / var(--size) var(--size),
+    conic-gradient(from 54deg at 68% 56%, #0000 108deg, #000 0) 0 0 / var(--size) var(--size),
+    conic-gradient(from 198deg at 32% 56%, #0000 108deg, #000 0) 0 0 / var(--size) var(--size),
+    conic-gradient(from 126deg at 50% 69%, #0000 108deg, #000 0) 0 0 / var(--size) var(--size);
+    mask-composite: intersect;
+    background: linear-gradient(to right, var(--deeper-gold) calc(var(--size) * var(--val)), #aaa 0);
+}
+
+.star-container {
+    display: flex;
+    padding: 0.5rem;
+    gap: 2rem;
+}
+
+.current-rating {
+    align-content: center;
+    display: inline-block;
+    height: var(--size);
+}
+
+.rating-text {
+    justify-self: center;
+    width: 95%;
+    display: block;
+    margin: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.rating-form {
+    border: 2px solid var(--dark-gold);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 35vw;
+    min-width: 400px;
+    justify-self: center;
+    margin: 3rem;
+}
+
+.leave-review-text {
+    justify-self: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 720px) {
+    .rating-form {
+        width: 80vw;
+        min-width: 180px;
+    }
+
+    .star-container {
+        justify-self: center;
+        flex-direction: column;
+    }
+
+    .current-rating {
+        text-align: center;
+    }
+}

@@ -82,3 +82,19 @@ export async function removeFromDB(endpoint, id) {
     });
     return response.json();
 }
+
+export async function postRating(guestId, username, rating, text) {
+    const response = await fetch(`${BASE_URL}ratings`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            guestId: guestId.toString(),
+            username: username.toString(),
+            rating: rating.toString(),
+            text: text.toString()
+        }),
+    });
+    return response.json();
+}
