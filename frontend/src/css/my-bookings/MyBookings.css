@@ -1,0 +1,23 @@
+.my-bookings-container {
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    padding: 200px 30px 30px 30px;
+    background-color: var(--white2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    color: var(--color1);
+}
+
+.my-bookings-grid {
+    max-width: 600px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}

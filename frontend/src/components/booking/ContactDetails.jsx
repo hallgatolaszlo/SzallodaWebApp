@@ -1,21 +1,42 @@
 import "../../css/booking/ContactDetails.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useRoomsAndBookingsContext} from "../../contexts/RoomsAndBookingsContext.jsx";
 import {useLoginContext} from "../../contexts/LoginContext.jsx";
-import {postBooking, postGuest} from "../../services/api.js";
+import {postBooking, postGuest, putGuest} from "../../services/api.js";
 
 function ContactDetails() {
     const {selectedBookings, guests} = useRoomsAndBookingsContext();
     const {userAccountId} = useLoginContext();
 
+    const [currentGuest, setCurrentGuest] = useState(null);
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+
+    useEffect(() => {
+        if (!userAccountId || !guests) return;
+        const guestData = guests.filter(guest => guest.accountId.toString() === userAccountId.toString());
+        if (!guestData) return;
+        setCurrentGuest(guestData[0]);
+    }, [userAccountId, guests]);
+
+    useEffect(() => {
+        if (!currentGuest) return;
+        setName(currentGuest.name);
+        setEmail(currentGuest.email);
+        setPhone(currentGuest.phone);
+    }, [currentGuest]);
 
     async function submitBooking() {
         let error = false;
         const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
         const phoneRegex = /\b(?:\+?(\d{1,3})[\s.-]?)?(?:\(?\d{2,4}\)?[\s.-]?)?\d{3,4}[\s.-]?\d{4}\b/;
+
+        if (Object.values(selectedBookings).every(type => type.length === 0)) {
+            alert("Please select a room to book!");
+            return;
+        }
 
         if (name === '' || email === '' || phone === '') {
             alert("Please fill in all fields!");
@@ -32,18 +53,33 @@ function ContactDetails() {
             return;
         }
 
+        let guestId = guests.length + 1;
+
+        const guestAlreadyExists = guests.some(guest => guest.accountId.toString() === userAccountId.toString());
+
+        if (guestAlreadyExists) {
+            guestId = guests.filter(guest => guest.accountId.toString() === userAccountId.toString())[0].id;
+        }
+
         const guestData = {
-            id: guests.length + 1,
+            id: guestId,
             name: name,
             email: email,
             phone: phone,
             accountId: userAccountId
         };
 
-        await postGuest(guestData).catch((e) => {
-            console.log(e);
-            error = true;
-        });
+        if (guestAlreadyExists) {
+            await putGuest(guestData).catch((e) => {
+                console.log(e);
+                error = true;
+            });
+        } else {
+            await postGuest(guestData).catch((e) => {
+                console.log(e);
+                error = true;
+            });
+        }
 
         if (error) {
             return;

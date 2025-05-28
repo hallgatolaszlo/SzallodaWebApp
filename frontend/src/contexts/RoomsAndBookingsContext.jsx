@@ -11,7 +11,7 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
 
     const [rooms, setRooms] = useState(null);
     const [bookings, setBookings] = useState(null);
-    const [guests, setGuests] = useState([null]);
+    const [guests, setGuests] = useState(null);
 
     const defaultStartDate = new Date(new Date().setHours(0, 0, 0, 0));
     const defaultEndDate = new Date(addDays(defaultStartDate, 1));
@@ -29,8 +29,10 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     const [totalCost, setTotalCost] = useState(0);
 
     useEffect(() => {
-        setTotalCost(getTotalCost());
-    }, [selectedBookings]);
+            setTotalCost(getTotalCost());
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [selectedBookings]);
 
     useEffect(() => {
         setSelectedBookings(prev => {
