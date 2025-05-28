@@ -5,6 +5,7 @@ import {useLoginContext} from "../contexts/LoginContext.jsx";
 import {useEffect, useState} from "react";
 import MyBooking from "../components/my-bookings/MyBooking.jsx";
 import {format} from "date-fns";
+import ChangeContactDetails from "../components/my-bookings/ChangeContactDetails.jsx";
 
 function MyBookings() {
     const {rooms, guests, bookings, loading} = useRoomsAndBookingsContext();
@@ -78,17 +79,14 @@ function MyBookings() {
     }
 
     let id = -1;
+    let active = 0;
+    let expired = 0;
 
     // noinspection JSCheckFunctionSignatures
     return (
         <>
             <div className="my-bookings-container">
-                <div className="my-bookings-guest-info">
-                    <h1>Contact Information For Bookings:</h1>
-                    <p>Name: {guestData.name}</p>
-                    <p>Email: {guestData.email}</p>
-                    <p>Phone: {guestData.phone}</p>
-                </div>
+                <ChangeContactDetails guestData={guestData}/>
                 <hr className="booking-hr"/>
                 <h1>Active Bookings:</h1>
                 <div className="my-bookings-grid">
@@ -97,12 +95,14 @@ function MyBookings() {
                         const bookingsOnDate = keyValuePair[1];
                         if (new Date(date.split(' ')[2]) >= new Date()) {
                             id++;
+                            active++;
                             return (
                                 <MyBooking key={id} id={id} date={date} bookings={bookingsOnDate}/>
                             );
                         }
                     })}
                 </div>
+                <p>{active ? "" : "No active bookings"}</p>
                 <hr className="booking-hr"/>
                 <h1>Expired Bookings:</h1>
                 <div className="my-bookings-grid">
@@ -111,12 +111,14 @@ function MyBookings() {
                         const bookingsOnDate = keyValuePair[1];
                         if (new Date(date.split(' ')[2]) < new Date()) {
                             id++;
+                            expired++;
                             return (
                                 <MyBooking key={id} id={id} date={date} bookings={bookingsOnDate}/>
                             );
                         }
                     })}
                 </div>
+                <p>{expired ? "" : "No expired bookings"}</p>
             </div>
             <Footer/>
         </>
