@@ -51,3 +51,10 @@ export async function postBooking(bookingData) {
     });
     return response.json();
 }
+
+export async function removeFromDB(endpoint, id) {
+    const response = await fetch(`${BASE_URL}${endpoint}/${id}`, {
+        method: "DELETE",
+    });
+    return response.json();
+}
