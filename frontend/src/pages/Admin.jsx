@@ -61,7 +61,9 @@ function Admin() {
                                         }
                                     }
 
-                                    await removeShit().then(data => console.log(data)).catch(err => console.log(err));
+                                    await removeShit().then(() => {
+                                        window.location.reload();
+                                    }).catch(err => console.log(err));
                                 }
                                 }
                                 className="admin-guest-delete-button">
@@ -87,7 +89,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -108,7 +112,10 @@ function Admin() {
                         <p>Role: {account.role}</p>
                         <button key={account.id} onClick={
                             async () => {
-                                await removeFromDB("accounts", account.id);
+                                await removeFromDB("accounts", account.id).then(() => {
+                                    window.location.reload();
+                                });
+
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -150,7 +157,9 @@ function Admin() {
                                         await removeFromDB("guests", guest.id);
                                         const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
                                         for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
+                                            await removeFromDB("bookings", booking.id).then(() => {
+                                                window.location.reload();
+                                            });
                                         }
                                     }
 
@@ -184,7 +193,9 @@ function Admin() {
                                         await removeFromDB("guests", guest.id);
                                         const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
                                         for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
+                                            await removeFromDB("bookings", booking.id).then(() => {
+                                                window.location.reload();
+                                            });
                                         }
                                     }
 
@@ -218,7 +229,9 @@ function Admin() {
                                         await removeFromDB("guests", guest.id);
                                         const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
                                         for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
+                                            await removeFromDB("bookings", booking.id).then(() => {
+                                                window.location.reload();
+                                            });
                                         }
                                     }
 
@@ -252,7 +265,9 @@ function Admin() {
                                         await removeFromDB("guests", guest.id);
                                         const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
                                         for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
+                                            await removeFromDB("bookings", booking.id).then(() => {
+                                                window.location.reload();
+                                            });
                                         }
                                     }
 
@@ -286,7 +301,9 @@ function Admin() {
                                         await removeFromDB("guests", guest.id);
                                         const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
                                         for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
+                                            await removeFromDB("bookings", booking.id).then(() => {
+                                                window.location.reload();
+                                            });
                                         }
                                     }
 
@@ -318,7 +335,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -331,7 +350,7 @@ function Admin() {
 
     function sortBookingsByRoomId() {
         console.log("sorting");
-        const sortedBookings = [...bookings].sort((a, b) => Number(a.roomId) - Number(b.RoomId));
+        const sortedBookings = [...bookings].sort((a, b) => Number(a.roomId) - Number(b.roomId));
         setSelectedContent(
             <div className="admin-guests-list">
                 {sortedBookings.map((booking) => (
@@ -345,7 +364,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -372,7 +393,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -399,7 +422,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -426,7 +451,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -453,7 +480,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -480,7 +509,9 @@ function Admin() {
                         <p>Cost: {booking.cost}</p>
                         <button key={booking.id} onClick={
                             async () => {
-                                await removeFromDB("bookings", booking.id);
+                                await removeFromDB("bookings", booking.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -503,7 +534,9 @@ function Admin() {
                         <p>Role: {account.role}</p>
                         <button key={account.id} onClick={
                             async () => {
-                                await removeFromDB("accounts", account.id);
+                                await removeFromDB("accounts", account.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -526,7 +559,9 @@ function Admin() {
                         <p>Role: {account.role}</p>
                         <button key={account.id} onClick={
                             async () => {
-                                await removeFromDB("accounts", account.id);
+                                await removeFromDB("accounts", account.id).then(() => {
+                                    window.location.reload();
+                                });
                             }
                         } className="admin-guest-delete-button">
                             DELETE
@@ -538,48 +573,50 @@ function Admin() {
     }
 
     return (
-        <div>
-            <div className="admin-page-sidebar">
-                <Sidebar>
-                    <Menu>
-                        <SubMenu label="Guests">
-                            <MenuItem onClick={showContent}> Show Guests </MenuItem>
-                            <SubMenu label="Order guests by">
-                                <MenuItem onClick={sortGuestsById}> ID </MenuItem>
-                                <MenuItem onClick={sortGuestsByName}> Name </MenuItem>
-                                <MenuItem onClick={sortGuestsByEmail}> E-mail </MenuItem>
-                                <MenuItem onClick={sortGuestsByPhone}> Phone number </MenuItem>
-                                <MenuItem onClick={sortGuestsByAccId}> Account ID </MenuItem>
+        <div className="admin-page">
+            <div className="admin-page-container">
+                <div className="admin-page-sidebar">
+                    <Sidebar>
+                        <Menu>
+                            <SubMenu label="Guests">
+                                <MenuItem onClick={showContent}> Show Guests </MenuItem>
+                                <SubMenu label="Order guests by">
+                                    <MenuItem onClick={sortGuestsById}> ID </MenuItem>
+                                    <MenuItem onClick={sortGuestsByName}> Name </MenuItem>
+                                    <MenuItem onClick={sortGuestsByEmail}> E-mail </MenuItem>
+                                    <MenuItem onClick={sortGuestsByPhone}> Phone number </MenuItem>
+                                    <MenuItem onClick={sortGuestsByAccId}> Account ID </MenuItem>
+                                </SubMenu>
                             </SubMenu>
-                        </SubMenu>
 
-                        <SubMenu label="Bookings">
-                            <MenuItem onClick={showBookings}> Show Bookings </MenuItem>
-                            <SubMenu label="Order bookings by">
-                                <MenuItem onClick={sortBookingsById}> ID </MenuItem>
-                                <MenuItem onClick={sortBookingsByRoomId}> Room ID </MenuItem>
-                                <MenuItem onClick={sortBookingsByGuestId}> Guest ID </MenuItem>
-                                <MenuItem onClick={sortBookingsByGuestCount}> Guest count </MenuItem>
-                                <MenuItem onClick={sortBookingsByStartDate}> Start date </MenuItem>
-                                <MenuItem onClick={sortBookingsByEndDate}> End date </MenuItem>
-                                <MenuItem onClick={sortBookingsByCost}> Cost </MenuItem>
+                            <SubMenu label="Bookings">
+                                <MenuItem onClick={showBookings}> Show Bookings </MenuItem>
+                                <SubMenu label="Order bookings by">
+                                    <MenuItem onClick={sortBookingsById}> ID </MenuItem>
+                                    <MenuItem onClick={sortBookingsByRoomId}> Room ID </MenuItem>
+                                    <MenuItem onClick={sortBookingsByGuestId}> Guest ID </MenuItem>
+                                    <MenuItem onClick={sortBookingsByGuestCount}> Guest count </MenuItem>
+                                    <MenuItem onClick={sortBookingsByStartDate}> Start date </MenuItem>
+                                    <MenuItem onClick={sortBookingsByEndDate}> End date </MenuItem>
+                                    <MenuItem onClick={sortBookingsByCost}> Cost </MenuItem>
+                                </SubMenu>
                             </SubMenu>
-                        </SubMenu>
 
-                        <SubMenu label="Accounts">
-                            <MenuItem onClick={showAccounts}> Show Accounts </MenuItem>
-                            <SubMenu label="Order accounts by">
-                                <MenuItem onClick={sortAccountsById}> ID </MenuItem>
-                                <MenuItem onClick={sortAccountByUsername}> Username </MenuItem>
+                            <SubMenu label="Accounts">
+                                <MenuItem onClick={showAccounts}> Show Accounts </MenuItem>
+                                <SubMenu label="Order accounts by">
+                                    <MenuItem onClick={sortAccountsById}> ID </MenuItem>
+                                    <MenuItem onClick={sortAccountByUsername}> Username </MenuItem>
+                                </SubMenu>
                             </SubMenu>
-                        </SubMenu>
-                        <MenuItem> Documentation </MenuItem>
-                    </Menu>
-                </Sidebar>
-            </div>
+                            <MenuItem> Documentation </MenuItem>
+                        </Menu>
+                    </Sidebar>
+                </div>
 
-            <div className="admin-page-sidebar-selected-content">
-                {selectedContent}
+                <div className="admin-page-sidebar-selected-content">
+                    {selectedContent}
+                </div>
             </div>
         </div>
     );

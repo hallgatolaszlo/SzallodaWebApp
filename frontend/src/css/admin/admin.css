@@ -1,29 +1,42 @@
-.admin-page-container {
-    display: flex;
-    justify-content: center;
+.admin-page {
     background: var(--white2);
     height: 100vh;
+    width: 100vw;
 }
 
-.admin-not-logged-in {
-    padding-top: 200px;
+.admin-page-container {
+    display: flex;
+    background: var(--white2);
+    height: fit-content;
 }
 
 .admin-page-sidebar {
     position: absolute;
-    top:200px;
+    top: 200px;
     background: var(--white);
 }
+
 .admin-page-sidebar-selected-content {
     border: 2px solid var(--color1);
     display: flex;
-    width: fit-content;
+    flex-direction: row;
     height: fit-content;
     margin-top: 200px;
-    margin-left:  250px;
+    margin-left: 250px;
     background: var(--white2);
 }
 
+.admin-guests-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 20px;
+}
+
 .admin-guest-card {
-    padding:  30px;
+    padding: 30px;
+    width: 250px;
+    border: 2px solid var(--color1);
 }
