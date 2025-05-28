@@ -1,3 +1,5 @@
+/*
+
 const pool = require('../config/db');
 
 const getRatings = async (req, res) => {
@@ -26,3 +28,5 @@ module.exports = {
     getRatings,
     createRating
 };
+
+ */

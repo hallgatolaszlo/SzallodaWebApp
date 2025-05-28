@@ -1,3 +1,5 @@
+/*
+
 const pool = require('../config/db');
 
 const getGuests = async (req, res) => {
@@ -74,3 +76,5 @@ module.exports = {
     updateGuest,
     deleteGuest
 };
+
+ */

@@ -1,3 +1,5 @@
+/*
+
 const pool = require('../config/db');
 
 const getAccounts = async (req, res) => {
@@ -95,3 +97,5 @@ module.exports = {
     register,
     deleteAccount
 };
+
+ */

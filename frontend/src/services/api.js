@@ -1,6 +1,4 @@
-const BASE_URL = import.meta.env.PROD
-    ? "https://szalloda-web-app.onrender.com/api/"
-    : "http://localhost:3001/api/";
+const BASE_URL = "http://localhost:3000/";
 
 export async function getFromAPI(endpoint) {
     const response = await fetch(`${BASE_URL}${endpoint}`);

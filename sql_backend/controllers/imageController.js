@@ -1,3 +1,5 @@
+/*
+
 const pool = require('../config/db');
 
 const getImages = async (req, res) => {
@@ -22,3 +24,5 @@ module.exports = {
     getImages,
     getImagesByClass
 };
+
+ */

@@ -17,7 +17,7 @@ async function migrateData() {
     try {
         // Read JSON data
         const jsonData = JSON.parse(
-            await fs.readFile('../json-server-backend/data/db.json', 'utf8')
+            await fs.readFile('../json-server-sql_backend/data/db.json', 'utf8')
         );
 
         // Insert accounts first (because guests depend on accounts)
