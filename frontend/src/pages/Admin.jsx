@@ -22,15 +22,15 @@ function Admin() {
 
     if (!isLoggedIn) {
         return (
-            <div className="admin-page-container">
-                <p className="admin-not-logged-in">You are not logged in</p>
+            <div className="my-bookings-container">
+                <p className="booking-login-warning">You are not logged in</p>
             </div>
         );
     }
     if (role !== "admin") {
         return (
-            <div className="admin-page-container">
-                <p className="admin-not-logged-in">You are not an admin</p>
+            <div className="my-bookings-container">
+                <p className="booking-login-warning">You are not an admin</p>
             </div>
         );
     }
