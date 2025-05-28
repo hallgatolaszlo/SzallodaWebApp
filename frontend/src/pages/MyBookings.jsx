@@ -15,6 +15,7 @@ function MyBookings() {
 
     useEffect(() => {
         if (!accountBookings) return;
+        console.log(accountBookings);
         let idCounter = 0;
         const newBookingData = accountBookings.map(booking => {
             const room = rooms.filter(room => room.id.toString() === booking.roomId.toString())[0];
@@ -42,7 +43,18 @@ function MyBookings() {
     useEffect(() => {
         if (!bookings || !guestId) return;
         const accountBookings = bookings.filter(booking => booking.guestId.toString() === guestId.toString());
-        accountBookings.sort((a, b) => new Date(a.start) - new Date(b.start));
+        accountBookings.sort((a, b) => {
+            const af = new Date(a.start);
+            const bf = new Date(b.start);
+            const as = new Date(a.end);
+            const bs = new Date(b.end);
+
+            if (af === bf) {
+                return (as < bs) ? -1 : (as > bs) ? 1 : 0;
+            } else {
+                return (af < bf) ? -1 : 1;
+            }
+        });
         setAccountBookings(accountBookings);
     }, [bookings, userAccountId, guestId]);
 
