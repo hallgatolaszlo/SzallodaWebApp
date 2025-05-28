@@ -67,6 +67,10 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     }, [rooms, bookings]);
 
     useEffect(() => {
+        fetchAll();
+    }, []);
+
+    function fetchAll() {
         async function fetchRooms() {
             return await getFromAPI("rooms");
         }
@@ -82,7 +86,7 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         fetchRooms().then(data => setRooms(data));
         fetchBookings().then(data => setBookings(data));
         fetchGuests().then(data => setGuests(data));
-    }, []);
+    }
 
     useEffect(() => {
             setAvailableRooms(getAvailableRooms());
@@ -146,7 +150,8 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         numberOfNights,
         selectedBookings,
         setSelectedBookings,
-        totalCost
+        totalCost,
+        fetchAll
     };
 
     return <RoomsAndBookingsContext.Provider value={value}>
