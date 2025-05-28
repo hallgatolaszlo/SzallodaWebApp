@@ -1,10 +1,10 @@
 .marketing-section {
-    width: 80vw;
+    padding: 10rem;
     display: flex;
 }
 
 .text-container {
-    width: 60%;
+    width: 70%;
     color: var(--color1);
 }
 

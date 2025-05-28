@@ -1,0 +1,40 @@
+.program-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 10rem 10rem 10rem;
+    gap: 1rem;
+}
+
+.program-container {
+    width: 19vw;
+    overflow: hidden;
+    justify-items: center;
+}
+
+.program-container-image > img {
+    display: inline-block;
+}
+
+.program-img-text {
+    font-family: var(--title-font), sans-serif;
+    padding: 1rem;
+    color: var(--dark-gold);
+    text-align: center;
+}
+
+@media (max-width: 1260px) {
+    .program-container {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .program-section {
+        flex-direction: column;
+    }
+
+    .program-container {
+        width: 100%;
+    }
+}

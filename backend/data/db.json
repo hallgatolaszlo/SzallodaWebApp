@@ -5,112 +5,112 @@
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+      "image": "/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "2",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+      "image": "/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "3",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+      "image": "/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "4",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "src/assets/img/rooms/deluxe-twin-room.jpg"
+      "image": "/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "5",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "src/assets/img/rooms/superior-double-room.jpg"
+      "image": "/rooms/superior-double-room.jpg"
     },
     {
       "id": "6",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "src/assets/img/rooms/superior-double-room.jpg"
+      "image": "/rooms/superior-double-room.jpg"
     },
     {
       "id": "7",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "src/assets/img/rooms/superior-double-room.jpg"
+      "image": "/rooms/superior-double-room.jpg"
     },
     {
       "id": "8",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "src/assets/img/rooms/superior-double-room.jpg"
+      "image": "/rooms/superior-double-room.jpg"
     },
     {
       "id": "9",
       "name": "Family Suite",
       "price": 4000,
       "capacity": 4,
-      "image": "src/assets/img/rooms/family-suite.jpg"
+      "image": "/rooms/family-suite.jpg"
     },
     {
       "id": "10",
       "name": "Family Suite",
       "price": 4000,
       "capacity": 4,
-      "image": "src/assets/img/rooms/family-suite.jpg"
+      "image": "/rooms/family-suite.jpg"
     },
     {
       "id": "11",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "src/assets/img/rooms/single-economy-room.jpg"
+      "image": "/rooms/single-economy-room.jpg"
     },
     {
       "id": "12",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "src/assets/img/rooms/single-economy-room.jpg"
+      "image": "/rooms/single-economy-room.jpg"
     },
     {
       "id": "13",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "src/assets/img/rooms/single-economy-room.jpg"
+      "image": "/rooms/single-economy-room.jpg"
     },
     {
       "id": "14",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "src/assets/img/rooms/single-economy-room.jpg"
+      "image": "/rooms/single-economy-room.jpg"
     },
     {
       "id": "15",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "src/assets/img/rooms/single-economy-room.jpg"
+      "image": "/rooms/single-economy-room.jpg"
     },
     {
       "id": "16",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "src/assets/img/rooms/single-economy-room.jpg"
+      "image": "/rooms/single-economy-room.jpg"
     }
   ],
   "guests": [
@@ -264,35 +264,35 @@
     {
       "id": "1",
       "guestId": 1,
-      "username": "Elena M.",
+      "username": "m.elena",
       "rating": 5,
       "text": "A magical underwater escape! Hotel Atlantis is unlike any place I’ve ever stayed. The views of marine life from my suite were breathtaking, and the ambiance was peaceful and surreal."
     },
     {
       "id": "2",
       "guestId": 2,
-      "username": "James K.",
+      "username": "k.james",
       "rating": 5,
       "text": "From the submarine arrival to the gourmet seafood dining, everything was flawless. The staff were incredibly attentive and made us feel like royalty beneath the sea."
     },
     {
       "id": "3",
       "guestId": 3,
-      "username": "Priya R.",
+      "username": "r.priya",
       "rating": 5,
       "text": "An unforgettable experience! Watching dolphins and manta rays glide past our room window was pure magic. Atlantis redefines luxury."
     },
     {
       "id": "4",
       "guestId": 4,
-      "username": "Daniel T.",
+      "username": "daniel.trx",
       "rating": 4.5,
       "text": "Hotel Atlantis is a masterpiece of engineering and hospitality. Our kids loved the underwater observatory and the coral reef excursions. 10/10 for families!"
     },
     {
       "id": "5",
       "guestId": 5,
-      "username": "Sophie L.",
+      "username": "sophie.lx",
       "rating": 5,
       "text": "Absolutely stunning! The tranquility of the ocean, the elegant design, and the five-star service made this one of the best stays of my life."
     }
@@ -410,6 +410,26 @@
       "id": "15",
       "url": "/rooms/superior-double-room.jpg",
       "class": "room"
+    },
+    {
+      "id": "16",
+      "url": "/home/program-1.jpg",
+      "class": "program"
+    },
+    {
+      "id": "17",
+      "url": "/home/program-2.jpg",
+      "class": "program"
+    },
+    {
+      "id": "18",
+      "url": "/home/program-3.jpg",
+      "class": "program"
+    },
+    {
+      "id": "19",
+      "url": "/home/program-4.jpg",
+      "class": "program"
     }
   ]
 }
