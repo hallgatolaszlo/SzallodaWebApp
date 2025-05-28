@@ -67,10 +67,10 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
     }, [rooms, bookings]);
 
     useEffect(() => {
-        fetchAll();
+        fetchAll().then().catch();
     }, []);
 
-    function fetchAll() {
+    async function fetchAll() {
         async function fetchRooms() {
             return await getFromAPI("rooms");
         }
