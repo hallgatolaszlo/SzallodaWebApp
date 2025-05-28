@@ -1,4 +1,6 @@
 import {createContext, useState, useContext, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
+import {useLocationContext} from "./LocationContext.jsx";
 
 const LoginContext = createContext(null);
 
@@ -9,6 +11,8 @@ export const LoginContextProvider = ({children}) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [role, setRole] = useState(null);
     const [userAccountId, setUserAccountId] = useState(null);
+    const navigate = useNavigate();
+    const locationContext = useLocationContext();
 
     useEffect(() => {
         const accountData = JSON.parse(sessionStorage.getItem("accountData"));
@@ -23,6 +27,7 @@ export const LoginContextProvider = ({children}) => {
         sessionStorage.setItem("accountData", JSON.stringify(data));
         setIsLoggedIn(true);
         setRole(data.role);
+        navigate(locationContext || "/");
     };
 
     const logout = () => {
