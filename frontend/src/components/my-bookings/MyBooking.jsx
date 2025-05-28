@@ -42,10 +42,8 @@ function MyBooking({id, date, bookings}) {
                 key++;
                 return (
                     <div key={key} className="my-booking-container">
-                        <p className="my-booking-room-name">Room: {current.room.name}</p>
-                        <div className="my-booking-img-container">
-                            <img className="my-booking-img" alt={current.room.name} src={current.room.image}></img>
-                        </div>
+                        <p className="my-booking-room-name">{current.room.name}</p>
+                        <img className="my-booking-img" alt={current.room.name} src={current.room.image}></img>
                         <div className="my-booking-main">
                             <p className="my-booking-number-of-guests"># of Guests: {current.booking.guestCount}</p>
                             <p className="my-booking-cost">Cost:
@@ -54,6 +52,10 @@ function MyBooking({id, date, bookings}) {
                     </div>
                 );
             })}
+            <p className="my-booking-total-cost">Total Cost:
+                ${new Intl.NumberFormat("en-US").format(bookings.reduce((acc, cur) => {
+                    return acc + Number(cur.booking.cost);
+                }, 0))}</p>
         </Collapsible>
     );
 }

@@ -1,3 +1,29 @@
+@media (max-width: 500px) {
+    .my-booking-collapsible-trigger-opened,
+    .my-booking-collapsible-trigger-closed,
+    .my-booking-room-name,
+    .my-booking-total-cost {
+        font-size: 1.5rem;
+    }
+
+    .my-booking-main {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 500px) {
+    .my-booking-collapsible-trigger-opened,
+    .my-booking-collapsible-trigger-closed,
+    .my-booking-room-name,
+    .my-booking-total-cost {
+        font-size: 2rem;
+    }
+
+    .my-booking-main {
+        font-size: 1.2rem;
+    }
+}
+
 .my-booking-collapsible-opened {
     justify-items: center;
 }
@@ -13,7 +39,6 @@
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 2rem;
     padding: 5px;
 }
 
@@ -23,7 +48,6 @@
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 2rem;
     padding: 5px;
 }
 
@@ -38,21 +62,32 @@
     grid-template:
     [header-left] "head head" auto [header-right]
     [main-left] "img main" auto [main-right]
-    / 1fr 1fr;
+    / 1fr 2fr;
 }
 
 .my-booking-room-name {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid var(--color1);
+    padding: 10px;
     grid-area: head;
 }
 
-.my-booking-img-container {
-    grid-area: img;
-}
-
 .my-booking-img {
+    border-right: 2px solid var(--color1);
+    border-bottom: 2px solid var(--color1);
+    width: 100%;
     grid-area: img;
 }
 
 .my-booking-main {
+    border-bottom: 2px solid var(--color1);
+    padding: 10px;
     grid-area: main;
+}
+
+.my-booking-total-cost {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
 }
