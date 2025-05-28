@@ -1,4 +1,4 @@
-.myBookings-container {
+.my-bookings-container {
     box-sizing: border-box;
     width: 100vw;
     min-height: 100vh;
@@ -12,7 +12,7 @@
     color: var(--color1);
 }
 
-.myBookings-grid {
+.my-bookings-grid {
     width: 100%;
     height: fit-content;
     display: flex;

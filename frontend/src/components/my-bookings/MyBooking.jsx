@@ -1,17 +1,15 @@
 import "../../css/my-bookings/MyBooking.css";
 import Collapsible from "react-collapsible";
-import {format} from "date-fns";
 import {useEffect, useState} from "react";
 
-function MyBooking({bookingData}) {
-    const {id, room, guest, guestCount, start, end} = bookingData;
+function MyBooking({id, date, bookings}) {
 
     const [trigger, setTrigger] = useState(null);
     const [contentOuter, setContentOuter] = useState(null);
 
     useEffect(() => {
-        setTrigger(document.querySelectorAll(".Collapsible__trigger")[id - 1]);
-        setContentOuter(document.querySelectorAll(".Collapsible__contentOuter")[id - 1]);
+        setTrigger(document.querySelectorAll(".Collapsible__trigger")[id]);
+        setContentOuter(document.querySelectorAll(".Collapsible__contentOuter")[id]);
     }, [id]);
 
     function openingAnimation() {
@@ -28,6 +26,8 @@ function MyBooking({bookingData}) {
         trigger.style.borderBottomRightRadius = "10px";
     }
 
+    let key = -1;
+
     return (<Collapsible
             easing="ease-in-out"
             onOpening={openingAnimation}
@@ -36,20 +36,24 @@ function MyBooking({bookingData}) {
             openedClassName="my-booking-collapsible-opened"
             triggerClassName="my-booking-collapsible-trigger-closed"
             triggerOpenedClassName="my-booking-collapsible-trigger-opened"
-            trigger={format(start, "yyyy/MM/dd") + " - " + format(end, "yyyy/MM/dd")}
+            trigger={date}
             contentOuterClassName="my-booking-collapsible-content-outer">
-            <div className="my-booking-container">
-                <div className="my-booking-room-details">
-                    <p>Room: {room.name}</p>
-                    <img src={room.image} alt={room.name}></img>
-                    <p>Guests: {guestCount}</p>
-                </div>
-                <div className="my-booking-guest-details">
-                    <p>Name: {guest.name}</p>
-                    <p>Email: {guest.email}</p>
-                    <p>Phone: {guest.phone}</p>
-                </div>
-            </div>
+            {bookings.map((current) => {
+                key++;
+                return (
+                    <div key={key} className="my-booking-container">
+                        <p className="my-booking-room-name">Room: {current.room.name}</p>
+                        <div className="my-booking-img-container">
+                            <img className="my-booking-img" alt={current.room.name} src={current.room.image}></img>
+                        </div>
+                        <div className="my-booking-main">
+                            <p className="my-booking-number-of-guests"># of Guests: {current.booking.guestCount}</p>
+                            <p className="my-booking-cost">Cost:
+                                ${new Intl.NumberFormat("en-US").format(current.booking.cost)}</p>
+                        </div>
+                    </div>
+                );
+            })}
         </Collapsible>
     );
 }

@@ -34,8 +34,25 @@
 
 .my-booking-container {
     width: 100%;
+    display: grid;
+    grid-template:
+    [header-left] "head head" auto [header-right]
+    [main-left] "img main" auto [main-right]
+    / 1fr 1fr;
 }
 
-.my-booking-container img {
-    width: 100px;
+.my-booking-room-name {
+    grid-area: head;
+}
+
+.my-booking-img-container {
+    grid-area: img;
+}
+
+.my-booking-img {
+    grid-area: img;
+}
+
+.my-booking-main {
+    grid-area: main;
 }

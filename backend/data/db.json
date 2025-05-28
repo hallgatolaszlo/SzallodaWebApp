@@ -141,6 +141,13 @@
       "email": "rab.mihaly@example.com",
       "phone": "+36205556677",
       "accountId": 4
+    },
+    {
+      "id": "5",
+      "name": "dummy",
+      "email": "dummy@dummy.dummy",
+      "phone": "123456789",
+      "accountId": "df09"
     }
   ],
   "bookings": [
@@ -224,6 +231,33 @@
       "start": "2025-07-01",
       "end": "2025-07-02",
       "cost": 500
+    },
+    {
+      "id": "38c6",
+      "roomId": "1",
+      "guestId": "5",
+      "guestCount": "2",
+      "start": "2025-05-28",
+      "end": "2025-05-29",
+      "cost": "2100"
+    },
+    {
+      "id": "bff6",
+      "roomId": "6",
+      "guestId": "5",
+      "guestCount": "1",
+      "start": "2025-05-28",
+      "end": "2025-05-29",
+      "cost": "2500"
+    },
+    {
+      "id": "f09a",
+      "roomId": "5",
+      "guestId": "5",
+      "guestCount": "2",
+      "start": "2025-05-28",
+      "end": "2025-05-29",
+      "cost": "2625"
     }
   ],
   "ratings": [
@@ -292,6 +326,12 @@
       "id": "4",
       "username": "rabmihaly",
       "password": "rabmihaly",
+      "role": "user"
+    },
+    {
+      "id": "df09",
+      "username": "dummy",
+      "password": "dummy",
       "role": "user"
     }
   ],

@@ -28,7 +28,13 @@ export async function postGuest(guestData) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({id: id, name: name, email: email, phone: phone, accountId: accountId}),
+        body: JSON.stringify({
+            id: id.toString(),
+            name: name.toString(),
+            email: email.toString(),
+            phone: phone.toString(),
+            accountId: accountId.toString()
+        }),
     });
     return response.json();
 }
@@ -40,7 +46,13 @@ export async function putGuest(guestData) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({id: id, name: name, email: email, phone: phone, accountId: accountId}),
+        body: JSON.stringify({
+            id: id.toString(),
+            name: name.toString(),
+            email: email.toString(),
+            phone: phone.toString(),
+            accountId: accountId.toString()
+        }),
     });
     return response.json();
 }
@@ -53,12 +65,12 @@ export async function postBooking(bookingData) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            roomId: roomId,
-            guestId: guestId,
-            guestCount: guestCount,
-            start: start,
-            end: end,
-            cost: cost,
+            roomId: roomId.toString(),
+            guestId: guestId.toString(),
+            guestCount: guestCount.toString(),
+            start: start.toString(),
+            end: end.toString(),
+            cost: cost.toString(),
         }),
     });
     return response.json();
