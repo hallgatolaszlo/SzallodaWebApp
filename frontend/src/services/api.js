@@ -119,26 +119,6 @@ export async function updateBooking(id, bookingData) {
     return response.json();
 }
 
-export async function postRating(ratingData) {
-    const {guestId, username, rating, text} = ratingData;
-    const response = await fetch(`${BASE_URL}ratings`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            guestId,
-            username,
-            rating,
-            text
-        }),
-    });
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-}
-
 export async function removeFromDB(endpoint, id) {
     const response = await fetch(`${BASE_URL}${endpoint}/${id}`, {
         method: "DELETE"
