@@ -1,59 +1,77 @@
-const BASE_URL = "http://localhost:3000/";
-const ENDPOINTS = ["rooms", "guests", "bookings", "ratings", "accounts", "images"];
-
-export function getEndpoints() {
-    return ENDPOINTS;
-}
+const BASE_URL = "http://localhost:3001/api/";
 
 export async function getFromAPI(endpoint) {
     const response = await fetch(`${BASE_URL}${endpoint}`);
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
     return response.json();
 }
 
-export async function postAccounts(username, password) {
-    const response = await fetch(`${BASE_URL}accounts`, {
+export async function login(username, password) {
+    const response = await fetch(`${BASE_URL}accounts/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({username: username, password: password, role: "user"}),
+        body: JSON.stringify({username, password}),
     });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+}
+
+export async function register(username, password) {
+    const response = await fetch(`${BASE_URL}accounts/register`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({username, password}),
+    });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
     return response.json();
 }
 
 export async function postGuest(guestData) {
-    const {id, name, email, phone, accountId} = guestData;
+    const {name, email, phone, accountId} = guestData;
     const response = await fetch(`${BASE_URL}guests`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            id: id.toString(),
-            name: name.toString(),
-            email: email.toString(),
-            phone: phone.toString(),
-            accountId: accountId.toString()
+            name,
+            email,
+            phone,
+            accountId
         }),
     });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
     return response.json();
 }
 
-export async function putGuest(guestData) {
-    const {id, name, email, phone, accountId} = guestData;
+export async function updateGuest(guestData) {
+    const {id, name, email, phone} = guestData;
     const response = await fetch(`${BASE_URL}guests/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            id: id.toString(),
-            name: name.toString(),
-            email: email.toString(),
-            phone: phone.toString(),
-            accountId: accountId.toString()
+            name,
+            email,
+            phone
         }),
     });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
     return response.json();
 }
 
@@ -65,20 +83,66 @@ export async function postBooking(bookingData) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            roomId: roomId.toString(),
-            guestId: guestId.toString(),
-            guestCount: guestCount.toString(),
-            start: start.toString(),
-            end: end.toString(),
-            cost: cost.toString(),
+            roomId,
+            guestId,
+            guestCount,
+            start,
+            end,
+            cost,
         }),
     });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+}
+
+export async function updateBooking(id, bookingData) {
+    const {guestCount, start, end, cost} = bookingData;
+    const response = await fetch(`${BASE_URL}bookings/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            guestCount,
+            start,
+            end,
+            cost,
+        }),
+    });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+}
+
+export async function postRating(ratingData) {
+    const {guestId, username, rating, text} = ratingData;
+    const response = await fetch(`${BASE_URL}ratings`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            guestId,
+            username,
+            rating,
+            text
+        }),
+    });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
     return response.json();
 }
 
 export async function removeFromDB(endpoint, id) {
     const response = await fetch(`${BASE_URL}${endpoint}/${id}`, {
-        method: "DELETE",
+        method: "DELETE"
     });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
     return response.json();
 }

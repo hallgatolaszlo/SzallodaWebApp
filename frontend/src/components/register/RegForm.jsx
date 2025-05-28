@@ -1,5 +1,5 @@
-import '../../css/register/RegForm.css'
-import {getFromAPI, postAccounts} from "../../services/api.js";
+import '../../css/register/RegForm.css';
+import {getFromAPI, register} from "../../services/api.js";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
@@ -30,14 +30,14 @@ function RegForm() {
             if (password !== cpassword) {
                 alert("Passwords do not match!");
             } else {
-                postAccounts(username, password)
+                register(username, password)
                     .then((data) => {
                         console.log(data);
                         navigate("/login", {replace: true});
                     })
                     .catch(error => {
-                        console.log(error)
-                    })
+                        console.log(error);
+                    });
 
             }
         }
@@ -86,7 +86,7 @@ function RegForm() {
 
             </div>
         </div>
-    )
+    );
 }
 
 export default RegForm;

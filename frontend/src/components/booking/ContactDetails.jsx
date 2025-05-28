@@ -2,7 +2,7 @@ import "../../css/booking/ContactDetails.css";
 import {useEffect, useState} from "react";
 import {useRoomsAndBookingsContext} from "../../contexts/RoomsAndBookingsContext.jsx";
 import {useLoginContext} from "../../contexts/LoginContext.jsx";
-import {postBooking, postGuest, putGuest} from "../../services/api.js";
+import {postBooking, postGuest, updateGuest} from "../../services/api.js";
 
 function ContactDetails() {
     const {selectedBookings, guests} = useRoomsAndBookingsContext();
@@ -29,7 +29,6 @@ function ContactDetails() {
     }, [currentGuest]);
 
     async function submitBooking() {
-        let error = false;
         const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
         const phoneRegex = /\b(?:\+?(\d{1,3})[\s.-]?)?(?:\(?\d{2,4}\)?[\s.-]?)?\d{3,4}[\s.-]?\d{4}\b/;
 
@@ -70,19 +69,13 @@ function ContactDetails() {
         };
 
         if (guestAlreadyExists) {
-            await putGuest(guestData).catch((e) => {
+            await updateGuest(guestData).catch((e) => {
                 console.log(e);
-                error = true;
             });
         } else {
             await postGuest(guestData).catch((e) => {
                 console.log(e);
-                error = true;
             });
-        }
-
-        if (error) {
-            return;
         }
 
         Object.values(selectedBookings).forEach(type => type.forEach(async booking => {
@@ -90,13 +83,8 @@ function ContactDetails() {
             console.log(booking);
             await postBooking(booking).catch((e) => {
                 console.log(e);
-                error = true;
             });
         }));
-
-        if (error) {
-            return;
-        }
 
         alert("Booking successful!");
         window.location.reload();

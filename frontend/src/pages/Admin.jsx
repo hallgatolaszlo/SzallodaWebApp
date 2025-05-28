@@ -55,10 +55,6 @@ function Admin() {
                                 onClick={async () => {
                                     async function removeShit() {
                                         await removeFromDB("guests", guest.id);
-                                        const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
-                                        for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
-                                        }
                                     }
 
                                     await removeShit().then(data => console.log(data)).catch(err => console.log(err));
@@ -148,10 +144,6 @@ function Admin() {
                                 onClick={async () => {
                                     async function removeShit() {
                                         await removeFromDB("guests", guest.id);
-                                        const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
-                                        for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
-                                        }
                                     }
 
                                     await removeShit().then(data => console.log(data)).catch(err => console.log(err));
@@ -182,10 +174,6 @@ function Admin() {
                                 onClick={async () => {
                                     async function removeShit() {
                                         await removeFromDB("guests", guest.id);
-                                        const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
-                                        for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
-                                        }
                                     }
 
                                     await removeShit().then(data => console.log(data)).catch(err => console.log(err));
@@ -216,10 +204,6 @@ function Admin() {
                                 onClick={async () => {
                                     async function removeShit() {
                                         await removeFromDB("guests", guest.id);
-                                        const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
-                                        for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
-                                        }
                                     }
 
                                     await removeShit().then(data => console.log(data)).catch(err => console.log(err));
@@ -250,10 +234,6 @@ function Admin() {
                                 onClick={async () => {
                                     async function removeShit() {
                                         await removeFromDB("guests", guest.id);
-                                        const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
-                                        for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
-                                        }
                                     }
 
                                     await removeShit().then(data => console.log(data)).catch(err => console.log(err));
@@ -284,10 +264,6 @@ function Admin() {
                                 onClick={async () => {
                                     async function removeShit() {
                                         await removeFromDB("guests", guest.id);
-                                        const guestsBookings = bookings.filter(booking => booking.guestId.toString() === guest.id.toString());
-                                        for (const booking of guestsBookings) {
-                                            await removeFromDB("bookings", booking.id);
-                                        }
                                     }
 
                                     await removeShit().then(data => console.log(data)).catch(err => console.log(err));

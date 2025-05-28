@@ -1,6 +1,6 @@
 import "../../css/booking/ContactDetails.css";
 import {useEffect, useState} from "react";
-import {putGuest} from "../../services/api.js";
+import {updateGuest} from "../../services/api.js";
 import {useLoginContext} from "../../contexts/LoginContext.jsx";
 
 function ChangeContactDetails({guestData}) {
@@ -51,7 +51,7 @@ function ChangeContactDetails({guestData}) {
             accountId: userAccountId
         };
 
-        await putGuest(newGuestData).then().catch();
+        await updateGuest(newGuestData).then().catch();
 
         alert("Contact details changed successfully!");
         window.location.reload();
