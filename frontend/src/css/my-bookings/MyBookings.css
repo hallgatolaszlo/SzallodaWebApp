@@ -1,9 +1,20 @@
+@media (max-width: 768px) {
+    .my-bookings-container {
+        padding: 100px 30px 30px 30px;
+    }
+}
+
+@media (min-width: 769px) {
+    .my-bookings-container {
+        padding: 200px 30px 30px 30px;
+    }
+}
+
 .my-bookings-container {
     box-sizing: border-box;
     width: 100vw;
     min-height: 100vh;
     height: fit-content;
-    padding: 200px 30px 30px 30px;
     background-color: var(--white2);
     display: flex;
     flex-direction: column;
