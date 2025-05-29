@@ -40,7 +40,10 @@ function RatingSystem() {
                 </div>
                 <textarea ref={ratingTextRef} placeholder="Enter your review" required className="rating-text"
                           rows={10}/>
-                <button type="submit" className="rating-submit-button">Submit</button>
+                <div className="submit-button-div">
+                    <button type="submit" className="rating-submit-button user-contact-details-form-button">Submit
+                    </button>
+                </div>
             </form>
         </>
     );

@@ -6,6 +6,7 @@
     appearance: none;
     border: 0;
     background: var(--white2);
+    outline: none; /* Remove focus outline */
 }
 
 /* Chrome and Safari */
@@ -20,9 +21,31 @@
     background: linear-gradient(to right, var(--deeper-gold) calc(var(--size) * var(--val)), #aaa 0);
 }
 
+/* Enhanced thumb hiding for WebKit browsers */
 .star-rating::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Firefox */
+.star-rating::-moz-range-thumb {
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.star-rating::-moz-range-track {
+    height: 100%;
+    background: transparent;
+    border: none;
 }
 
 .star-container {
@@ -62,10 +85,16 @@
     margin-bottom: 1rem;
 }
 
+.submit-button-div {
+    justify-self: flex-end;
+    margin: 1rem;
+}
+
 @media (max-width: 720px) {
     .rating-form {
         width: 80vw;
         min-width: 180px;
+        justify-items: center;
     }
 
     .star-container {
