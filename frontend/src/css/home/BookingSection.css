@@ -1,8 +1,9 @@
 .booking-section {
-    padding: 0 10rem 10rem 10rem;
+    padding: 0 1rem 1rem 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    max-width: 100%;
 }
 
 .booking-section-text-container .booking-section-img-container {
@@ -15,6 +16,7 @@
 }
 
 .booking-section-img-container > img {
+    max-width: 100%;
     display: block;
     width: 720px;
 }

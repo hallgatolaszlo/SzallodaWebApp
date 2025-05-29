@@ -1,6 +1,7 @@
 footer {
     background-color: var(--color1);
     color: var(--white);
+    max-width: 100%;
 }
 
 .footer-text {
@@ -10,7 +11,7 @@ footer {
 }
 
 .footer-text-1 {
-    padding-top: 20px;
+    padding-top: 1rem;
     padding-bottom: 0;
 }
 
@@ -19,18 +20,18 @@ footer {
 }
 
 .footer-contact {
-    margin-top: 20px;
+    margin-top: 1rem;
     display: flex;
     justify-content: space-evenly;
 
 }
 
 .footer-contact .footer-text {
-    padding: 10px;
+    padding: 1rem;
 }
 
 .footer-contact:last-child {
-    padding-bottom: 20px;
+    padding-bottom: 1rem;
 }
 
 .footer-contact::before, .footer-contact::after {
@@ -54,7 +55,7 @@ footer {
     }
 
     .footer-contact::before, .footer-contact::after {
-        width: 30%;
+        width: 30vw;
         align-self: center;
         content: '';
         border: 1px solid var(--deeper-gold);
