@@ -1,11 +1,26 @@
 import '../../css/home/BookingSection.css';
 import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getFromAPI} from "../../services/api.js";
 
 function BookingSection() {
+    const [marketingImage, setMarketingImage] = useState(null);
+
+    useEffect(() => {
+        async function fetchImages() {
+            return await getFromAPI("images");
+        }
+
+
+        fetchImages().then(data => {
+            setMarketingImage(data.find(image => image.class === "marketingimage"));
+        });
+    }, []);
+
     return (
         <div className="section booking-section">
             <div className="booking-section-img-container">
-                <img src="/home/marketingimage.jpg" alt="Lobby"/>
+                <img src={marketingImage ? marketingImage.url : null} alt="Lobby"/>
             </div>
             <div className="booking-section-text-container">
                 <h3>A Submerged Sanctuary Beneath the Atlantic</h3>
