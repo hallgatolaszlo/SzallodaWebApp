@@ -1,9 +1,6 @@
 const BASE_URL = "http://localhost:3000/";
-const ENDPOINTS = ["rooms", "guests", "bookings", "ratings", "accounts", "images"];
 
-export function getEndpoints() {
-    return ENDPOINTS;
-}
+// const BASE_URL = "https://szallodawebapp.onrender.com/";
 
 export async function getFromAPI(endpoint) {
     const response = await fetch(`${BASE_URL}${endpoint}`);
