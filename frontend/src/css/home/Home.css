@@ -1,5 +1,6 @@
 .section {
     width: 80vw;
+    max-width: 100%;
     margin: 10px;
     justify-self: center;
     animation: 3s fadeInUp;

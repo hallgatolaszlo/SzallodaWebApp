@@ -20,6 +20,11 @@
     background: linear-gradient(to right, var(--deeper-gold) calc(var(--size) * var(--val)), #aaa 0);
 }
 
+.star-rating::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 .star-container {
     display: flex;
     padding: 0.5rem;

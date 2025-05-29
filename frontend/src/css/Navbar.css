@@ -2,7 +2,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
     display: flex;
     text-align: center;
@@ -91,8 +91,8 @@ header .flexbox-item:first-child {
     .nav-btn-close {
         color: var(--deeper-gold);
         position: absolute;
-        top: 2rem;
-        right: 3rem;
+        top: 1rem;
+        right: 1rem;
     }
 
     .nav-link {
