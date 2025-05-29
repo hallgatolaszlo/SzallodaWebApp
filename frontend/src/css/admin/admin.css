@@ -1,29 +1,96 @@
-.admin-page-container {
-    display: flex;
-    justify-content: center;
+.admin-page {
     background: var(--white2);
     height: 100vh;
+    width: 100vw;
 }
 
-.admin-not-logged-in {
-    padding-top: 200px;
+.admin-page-container {
+    display: flex;
+    background: var(--white2);
+    height: fit-content;
 }
 
 .admin-page-sidebar {
     position: absolute;
-    top:200px;
+    top: 200px;
     background: var(--white);
 }
+
 .admin-page-sidebar-selected-content {
-    border: 2px solid var(--color1);
     display: flex;
-    width: fit-content;
+    flex-direction: row;
     height: fit-content;
     margin-top: 200px;
-    margin-left:  250px;
+    margin-left: 250px;
     background: var(--white2);
 }
 
+.admin-guests-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 20px;
+}
+
 .admin-guest-card {
-    padding:  30px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 250px;
+    border: 2px solid var(--color1);
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.admin-guest-card p {
+    overflow-wrap: break-word;
+}
+
+.admin-guest-delete-button {
+    position: relative;
+    color: #eee;
+    padding: 7px 13px;
+    border: none;
+    border-radius: 1px;
+    background: #2c3e50;
+}
+
+.admin-guest-delete-button:hover {
+    background: #c0392b;
+}
+
+.admin-guest-delete-button:active {
+    background: #e74c3c;
+}
+
+.admin-page-guest-card-container {
+    margin-bottom: 10px;
+}
+
+.admin-page-delete-button-container {
+    border: 2px solid var(--color1);
+    align-self: center;
+}
+
+
+@media screen and (max-width: 769px) {
+    .admin-page-sidebar-selected-content {
+        margin-left: 90px;
+        margin-top: 130px;
+        width: 200px;
+    }
+
+    .admin-guest-list {
+        width: 180px;
+    }
+
+    .admin-guest-card {
+        width: 180px;
+    }
+
+    .admin-page-sidebar {
+        top: 150px;
+    }
 }
