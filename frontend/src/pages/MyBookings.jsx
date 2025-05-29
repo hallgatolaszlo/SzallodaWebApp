@@ -85,7 +85,7 @@ function MyBookings() {
 
     // noinspection JSCheckFunctionSignatures
     return (
-        <>
+        <div className="my-bookings-page">
             <div className="my-bookings-container">
                 <ChangeContactDetails guestData={guestData}/>
                 <hr className="booking-hr"/>
@@ -126,7 +126,7 @@ function MyBookings() {
                     : createElement("p", null, "No expired bookings")}
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 

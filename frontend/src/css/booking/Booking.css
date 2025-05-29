@@ -1,13 +1,33 @@
+@media (max-width: 768px) {
+    .booking-container {
+        padding: 100px 30px 30px 30px;
+    }
+}
+
+@media (min-width: 769px) {
+    .booking-container {
+        padding: 200px 30px 30px 30px;
+    }
+}
+
+.booking-page {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .booking-container {
     box-sizing: border-box;
-    width: 100vw;
-    padding: 200px 30px 30px 30px;
+    width: 100%;
     background-color: var(--white2);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
     color: var(--color1);
+    text-align: center;
 }
 
 .rooms-grid {
@@ -59,6 +79,7 @@
 }
 
 .booking-hr {
+    box-sizing: border-box;
     width: 100vw;
     border: 1px solid var(--dark-gold);
 }

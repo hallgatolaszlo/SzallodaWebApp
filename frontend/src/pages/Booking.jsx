@@ -13,7 +13,7 @@ function Booking() {
     const {isLoggedIn} = useLoginContext();
 
     const [hoverDate, setHoverDate] = useState(null);
-  
+
     const {
         availableRooms,
         uniqueRooms,
@@ -35,7 +35,7 @@ function Booking() {
 
     // noinspection JSValidateTypes
     return (
-        <>
+        <div className="booking-page">
             <div className="booking-container">
                 <div className="booking-query-container">
                     <div className="datepicker-container">
@@ -111,13 +111,11 @@ function Booking() {
                     </p>
                 </div>
                 <hr className="booking-hr"/>
-                <div>
-                    {isLoggedIn ? <ContactDetails/> :
-                        <p className="booking-login-warning">Please log in to book a room</p>}
-                </div>
+                {isLoggedIn ? <ContactDetails/> :
+                    <p className="booking-login-warning">Please log in to book a room</p>}
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 
