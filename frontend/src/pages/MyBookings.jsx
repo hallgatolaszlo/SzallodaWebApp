@@ -119,11 +119,14 @@ function MyBookings() {
                         }
                     })}
                 </div>
-                {expired ?
-                    createElement("div", {className: "rating-div"},
-                        [createElement("hr", {className: "booking-hr"})],
-                        createElement(RatingSystem))
-                    : createElement("p", null, "No expired bookings")}
+                <p></p>
+                <hr className="booking-hr"/>
+                <div>
+                    {expired ?
+                        createElement("div", {className: "rating-div"},
+                            [createElement(RatingSystem)])
+                        : createElement("p", null, "No expired bookings")}
+                </div>
             </div>
             <Footer/>
         </div>
