@@ -5,112 +5,112 @@
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "/rooms/deluxe-twin-room.jpg"
+      "image": "/SzallodaWebApp/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "2",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "/rooms/deluxe-twin-room.jpg"
+      "image": "/SzallodaWebApp/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "3",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "/rooms/deluxe-twin-room.jpg"
+      "image": "/SzallodaWebApp/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "4",
       "name": "Deluxe Twin Room",
       "price": 2000,
       "capacity": 2,
-      "image": "/rooms/deluxe-twin-room.jpg"
+      "image": "/SzallodaWebApp/rooms/deluxe-twin-room.jpg"
     },
     {
       "id": "5",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "/rooms/superior-double-room.jpg"
+      "image": "/SzallodaWebApp/rooms/superior-double-room.jpg"
     },
     {
       "id": "6",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "/rooms/superior-double-room.jpg"
+      "image": "/SzallodaWebApp/rooms/superior-double-room.jpg"
     },
     {
       "id": "7",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "/rooms/superior-double-room.jpg"
+      "image": "/SzallodaWebApp/rooms/superior-double-room.jpg"
     },
     {
       "id": "8",
       "name": "Superior Double Room",
       "price": 2500,
       "capacity": 2,
-      "image": "/rooms/superior-double-room.jpg"
+      "image": "/SzallodaWebApp/rooms/superior-double-room.jpg"
     },
     {
       "id": "9",
       "name": "Family Suite",
       "price": 4000,
       "capacity": 4,
-      "image": "/rooms/family-suite.jpg"
+      "image": "/SzallodaWebApp/rooms/family-suite.jpg"
     },
     {
       "id": "10",
       "name": "Family Suite",
       "price": 4000,
       "capacity": 4,
-      "image": "/rooms/family-suite.jpg"
+      "image": "/SzallodaWebApp/rooms/family-suite.jpg"
     },
     {
       "id": "11",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "/rooms/single-economy-room.jpg"
+      "image": "/SzallodaWebApp/rooms/single-economy-room.jpg"
     },
     {
       "id": "12",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "/rooms/single-economy-room.jpg"
+      "image": "/SzallodaWebApp/rooms/single-economy-room.jpg"
     },
     {
       "id": "13",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "/rooms/single-economy-room.jpg"
+      "image": "/SzallodaWebApp/rooms/single-economy-room.jpg"
     },
     {
       "id": "14",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "/rooms/single-economy-room.jpg"
+      "image": "/SzallodaWebApp/rooms/single-economy-room.jpg"
     },
     {
       "id": "15",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "/rooms/single-economy-room.jpg"
+      "image": "/SzallodaWebApp/rooms/single-economy-room.jpg"
     },
     {
       "id": "16",
       "name": "Single Economy Room",
       "price": 500,
       "capacity": 1,
-      "image": "/rooms/single-economy-room.jpg"
+      "image": "/SzallodaWebApp/rooms/single-economy-room.jpg"
     }
   ],
   "guests": [
@@ -338,98 +338,108 @@
   "images": [
     {
       "id": "1",
-      "url": "/gallery/1.jpg",
+      "url": "/SzallodaWebApp/gallery/1.jpg",
       "class": "lobby"
     },
     {
       "id": "2",
-      "url": "/gallery/2.jpg",
+      "url": "/SzallodaWebApp/gallery/2.jpg",
       "class": "lobby"
     },
     {
       "id": "3",
-      "url": "/gallery/3.jpg",
+      "url": "/SzallodaWebApp/gallery/3.jpg",
       "class": "lobby"
     },
     {
       "id": "4",
-      "url": "/gallery/4.jpg",
+      "url": "/SzallodaWebApp/gallery/4.jpg",
       "class": "lobby"
     },
     {
       "id": "5",
-      "url": "/gallery/5.jpg",
+      "url": "/SzallodaWebApp/gallery/5.jpg",
       "class": "lobby"
     },
     {
       "id": "6",
-      "url": "/gallery/6.jpg",
+      "url": "/SzallodaWebApp/gallery/6.jpg",
       "class": "lobby"
     },
     {
       "id": "7",
-      "url": "/gallery/7.jpg",
+      "url": "/SzallodaWebApp/gallery/7.jpg",
       "class": "lobby"
     },
     {
       "id": "8",
-      "url": "/gallery/8.jpg",
+      "url": "/SzallodaWebApp/gallery/8.jpg",
       "class": "lobby"
     },
     {
       "id": "9",
-      "url": "/gallery/9.jpg",
+      "url": "/SzallodaWebApp/gallery/9.jpg",
       "class": "lobby"
     },
     {
       "id": "10",
-      "url": "/gallery/10.jpg",
+      "url": "/SzallodaWebApp/gallery/10.jpg",
       "class": "room"
     },
     {
       "id": "11",
-      "url": "/gallery/11.jpg",
+      "url": "/SzallodaWebApp/gallery/11.jpg",
       "class": "room"
     },
     {
       "id": "12",
-      "url": "/rooms/deluxe-twin-room.jpg",
+      "url": "/SzallodaWebApp/rooms/deluxe-twin-room.jpg",
       "class": "room"
     },
     {
       "id": "13",
-      "url": "/rooms/family-suite.jpg",
+      "url": "/SzallodaWebApp/rooms/family-suite.jpg",
       "class": "room"
     },
     {
       "id": "14",
-      "url": "/rooms/single-economy-room.jpg",
+      "url": "/SzallodaWebApp/rooms/single-economy-room.jpg",
       "class": "room"
     },
     {
       "id": "15",
-      "url": "/rooms/superior-double-room.jpg",
+      "url": "/SzallodaWebApp/rooms/superior-double-room.jpg",
       "class": "room"
     },
     {
       "id": "16",
-      "url": "/home/program-1.jpg",
+      "url": "/SzallodaWebApp/home/program-1.jpg",
       "class": "program"
     },
     {
       "id": "17",
-      "url": "/home/program-2.jpg",
+      "url": "/SzallodaWebApp/home/program-2.jpg",
       "class": "program"
     },
     {
       "id": "18",
-      "url": "/home/program-3.jpg",
+      "url": "/SzallodaWebApp/home/program-3.jpg",
       "class": "program"
     },
     {
       "id": "19",
-      "url": "/home/program-4.jpg",
+      "url": "/SzallodaWebApp/home/program-4.jpg",
       "class": "program"
+    },
+    {
+      "id": "20",
+      "url": "/SzallodaWebApp/home/marketingimage.jpg",
+      "class": "marketingimage"
+    },
+    {
+      "id": "21",
+      "url": "/SzallodaWebApp/home/five-star.png",
+      "class": "five-star"
     }
   ]
 }

@@ -1,9 +1,6 @@
 const BASE_URL = "http://localhost:3000/";
-const ENDPOINTS = ["rooms", "guests", "bookings", "ratings", "accounts", "images"];
 
-export function getEndpoints() {
-    return ENDPOINTS;
-}
+//  BASE_URL = "https://szallodawebapp.onrender.com/";
 
 export async function getFromAPI(endpoint) {
     const response = await fetch(`${BASE_URL}${endpoint}`);
@@ -79,6 +76,22 @@ export async function postBooking(bookingData) {
 export async function removeFromDB(endpoint, id) {
     const response = await fetch(`${BASE_URL}${endpoint}/${id}`, {
         method: "DELETE",
+    });
+    return response.json();
+}
+
+export async function postRating(guestId, username, rating, text) {
+    const response = await fetch(`${BASE_URL}ratings`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            guestId: guestId.toString(),
+            username: username.toString(),
+            rating: rating.toString(),
+            text: text.toString()
+        }),
     });
     return response.json();
 }
