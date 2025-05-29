@@ -27,6 +27,10 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    background: var(--white2);
+}
+
 main {
     background: var(--white2);
 }

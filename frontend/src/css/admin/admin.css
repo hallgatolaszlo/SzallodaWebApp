@@ -17,7 +17,6 @@
 }
 
 .admin-page-sidebar-selected-content {
-    border: 2px solid var(--color1);
     display: flex;
     flex-direction: row;
     height: fit-content;
@@ -36,7 +35,62 @@
 }
 
 .admin-guest-card {
+    display: flex;
+    flex-direction: column;
     padding: 30px;
     width: 250px;
     border: 2px solid var(--color1);
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.admin-guest-card p {
+    overflow-wrap: break-word;
+}
+
+.admin-guest-delete-button {
+    position: relative;
+    color: #eee;
+    padding: 7px 13px;
+    border: none;
+    border-radius: 1px;
+    background: #2c3e50;
+}
+
+.admin-guest-delete-button:hover {
+    background: #c0392b;
+}
+
+.admin-guest-delete-button:active {
+    background: #e74c3c;
+}
+
+.admin-page-guest-card-container {
+    margin-bottom: 10px;
+}
+
+.admin-page-delete-button-container {
+    border: 2px solid var(--color1);
+    align-self: center;
+}
+
+
+@media screen and (max-width: 769px) {
+    .admin-page-sidebar-selected-content {
+        margin-left: 90px;
+        margin-top: 130px;
+        width: 200px;
+    }
+
+    .admin-guest-list {
+        width: 180px;
+    }
+
+    .admin-guest-card {
+        width: 180px;
+    }
+
+    .admin-page-sidebar {
+        top: 150px;
+    }
 }
