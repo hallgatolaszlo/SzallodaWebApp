@@ -1,6 +1,6 @@
-const BASE_URL = "http://localhost:3000/";
+// const BASE_URL = "http://localhost:3000/";
 
-// const BASE_URL = "https://szallodawebapp.onrender.com/";
+const BASE_URL = "https://szallodawebapp.onrender.com/";
 
 export async function getFromAPI(endpoint) {
     const response = await fetch(`${BASE_URL}${endpoint}`);
