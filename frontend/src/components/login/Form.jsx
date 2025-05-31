@@ -42,32 +42,35 @@ function Form() {
 
         <div className="form-block">
 
-            <div className="input-field">
-                <p>Username</p>
-                <input className="input-username"
-                       value={username}
-                       placeholder="Type your username here..."
-                       onChange={(e) => setUsername(e.target.value)}
-                />
-                <br/>
-                <p>Password</p>
-                <input className="input-password"
-                       value={password}
-                       placeholder="Type your password here..."
-                       type="password"
-                       onChange={(e) => setPassword(e.target.value)}
-                       onKeyDown={(e) => {
-                           if (e.key === 'Enter') {
-                               checkAccounts();
-                           }
-                       }}
-                />
+            <div className="input-area">
+                <div className="input-field">
+                    <p>Username</p>
+                    <input className="input-username"
+                           value={username}
+                           placeholder="Enter your username"
+                           onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div className="input-field">
+                    <p>Password</p>
+                    <input className="input-password"
+                           value={password}
+                           placeholder="Enter your password"
+                           type="password"
+                           onChange={(e) => setPassword(e.target.value)}
+                           onKeyDown={(e) => {
+                               if (e.key === 'Enter') {
+                                   checkAccounts();
+                               }
+                           }}
+                    />
+                </div>
                 <button className="login-button" onClick={checkAccounts}>Log in</button>
             </div>
 
-            <div className="ext-field">
-                <p>Don't have an account yet?</p>
-                <Link to="/register" className="sign-up-link"> Sign up here!</Link>
+            <div className="text-field">
+                <p>Don't have an account?</p>
+                <Link to="/register" className="sign-up-link"> Sign up</Link>
             </div>
 
 
