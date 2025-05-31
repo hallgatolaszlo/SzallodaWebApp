@@ -23,7 +23,7 @@ function MyBookings() {
     }, [guests, guestId]);
 
     useEffect(() => {
-        if (!accountBookings) return;
+        if (!accountBookings || !rooms) return;
         const newBookingData = {};
         accountBookings.forEach(booking => {
             const key = `${format(booking.start, 'yyyy/MM/dd')} - ${format(booking.end, 'yyyy/MM/dd')}`;
