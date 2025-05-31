@@ -1,10 +1,8 @@
 .login-page-container {
+    padding-top: 200px;
     display: flex;
     justify-content: center;
     background: var(--white2);
-    height: 100vh;
-}
-
-.form-container-finale {
-    margin-top: 200px;
+    min-height: 100vh;
+    height: fit-content;
 }
