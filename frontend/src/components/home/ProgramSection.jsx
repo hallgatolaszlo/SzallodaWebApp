@@ -23,7 +23,7 @@ function ProgramSection() {
             {programImages.map(image =>
                 createElement("div", {className: "program-container", key: image.id + 300}, [
                     createElement("div", {className: "program-container-img", key: image.id + 100}, <img
-                        className="gallery-rooms-images-images-inside"
+                        className="gallery-rooms-images"
                         src={image.url}
                         key={image.id}
                         alt={image.id}
