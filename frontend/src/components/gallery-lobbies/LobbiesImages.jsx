@@ -1,4 +1,4 @@
-import '../../css/gallery-lobbies/LobbyImages.css'
+import '../../css/gallery-lobbies/LobbyImages.css';
 import {getFromAPI} from "../../services/api.js";
 import {useEffect, useState} from "react";
 
@@ -16,22 +16,20 @@ function LobbiesImages() {
 
     return (
         <div className="gallery-rooms-images-container">
-            <div className="gallery-rooms-images-images">
 
-                {roomImages
-                    .filter(image => image.class === "lobby")
-                    .map(image => (
-                        <img
-                            className="gallery-rooms-images-images-inside"
-                            key={image.id}
-                            src={image.url}
-                            alt={image.id}
-                        />
-                    ))}
+            {roomImages
+                .filter(image => image.class === "lobby")
+                .map(image => (
+                    <img
+                        className="gallery-rooms-images"
+                        key={image.id}
+                        src={image.url}
+                        alt={image.id}
+                    />
+                ))}
 
-            </div>
         </div>
-    )
+    );
 }
 
 export default LobbiesImages;
