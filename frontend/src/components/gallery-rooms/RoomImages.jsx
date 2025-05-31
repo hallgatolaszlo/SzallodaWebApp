@@ -17,22 +17,20 @@ function RoomImages({}) {
 
     return (
         <div className="gallery-rooms-images-container">
-            <div className="gallery-rooms-images-images">
 
-                {roomImages
-                    .filter(image => image.class === "room")
-                    .map(image => (
-                        <img
-                            className="gallery-rooms-images-images-inside"
-                            key={image.id}
-                            src={image.url}
-                            alt={image.id}
-                        />
-                    ))}
+            {roomImages
+                .filter(image => image.class === "room")
+                .map(image => (
+                    <img
+                        className="gallery-rooms-images"
+                        key={image.id}
+                        src={image.url}
+                        alt={image.id}
+                    />
+                ))}
 
-            </div>
         </div>
-    )
+    );
 }
 
 export default RoomImages;

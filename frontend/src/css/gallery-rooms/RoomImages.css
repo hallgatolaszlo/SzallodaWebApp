@@ -1,21 +1,33 @@
 .gallery-rooms-images-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: start;
-    padding-top: 160px;
-    background: var(--white2);
-    height: 100vh;
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    padding: 200px 10px 10px 10px;
+    min-height: 100vh;
+    height: fit-content;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.gallery-rooms-images-images {
-    margin: 5px;
+.gallery-rooms-images {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
-.gallery-rooms-images-images-inside {
-    width: 500px;
-    height: 300px;
-    margin-left: 10px;
-    margin-right: 5px;
-    margin-top: 10px;
+@media (max-width: 1900px) {
+    .gallery-rooms-images-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .gallery-rooms-images-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-rooms-images-container {
+        padding: 120px 10px 10px 10px;
+    }
 }
