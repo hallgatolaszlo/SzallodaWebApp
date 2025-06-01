@@ -11,3 +11,13 @@
 .text-container > h1 {
     font-weight: 400;
 }
+
+@media screen and (max-width: 920px) {
+    .text-container {
+        width: 90%;
+    }
+
+    .text-container > h1 {
+        font-size: 18pt;
+    }
+}

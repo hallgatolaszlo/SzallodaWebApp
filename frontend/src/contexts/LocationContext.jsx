@@ -11,7 +11,7 @@ export const LocationContextProvider = ({children}) => {
 
     useEffect(() => {
         const currentPath = location.pathname;
-        if (!'/login'.includes(currentPath) && previousPathRef.current !== currentPath) {
+        if (!'/login'.includes(currentPath) && previousPathRef.current !== currentPath && !'/register'.includes(currentPath)) {
             previousPathRef.current = currentPath;
         }
     }, [location]);
