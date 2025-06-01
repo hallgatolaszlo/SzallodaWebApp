@@ -45,3 +45,13 @@
 .rating-section > h3 {
     font-size: 1.5rem;
 }
+
+@media screen and (min-width: 2000px) {
+    #media-scroller-container {
+        justify-items: center;
+    }
+
+    .btn {
+        display: none;
+    }
+}

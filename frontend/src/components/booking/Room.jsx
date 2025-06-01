@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import _ from "lodash";
 import {useRoomsAndBookingsContext} from "../../contexts/RoomsAndBookingsContext.jsx";
 import {format} from "date-fns";
+import {IoCloseCircleOutline} from "react-icons/io5";
 
 function Room({room}) {
     const {
@@ -96,61 +97,111 @@ function Room({room}) {
         setFullPrice(newPrice);
     }, [price, numberOfRooms, guestsPerRoom, numberOfNights, uniqueRooms, name]);
 
+    //popup
+    const [selectedRoom, setSelectedRoom] = useState(null);
+    const handleRoomClick = (roomId) => {
+        const room = rooms.find(room => room.id === roomId);
+        setSelectedRoom(room);
+    };
+
+    const closePopup = () => {
+        setSelectedRoom(null);
+    };
+
     return (
-        <div className="room-container">
-            <div className="room-title-bar">
-                <p className="room-name">{name}</p>
-                <p className="room-capacity">{capacity > 1 ? "For maximum " + capacity + " people" : "For maximum " + capacity + " person"}</p>
-            </div>
-            <div className="room-image-container">
-                <img className="room-image" src={image} alt={"Picture of " + name}/>
-            </div>
-            <div className="room-main">
-                <div className="room-number-of-rooms-container">
-                    <p>{"Number of Rooms: "}</p>
-                    <select className="room-number-of-rooms-select"
-                            onChange={(e) => setNumberOfRooms(Number(e.target.value))}>
-                        {_.range(0, allOfThisType.length + 1).map(number => number > availableOfThisType.length
-                            ?
-                            <option key={number} disabled>{number}</option>
-                            :
-                            <option key={number}>{number}</option>)}
-                    </select>
-                    {numberOfRooms === 0 ? "" :
-                        <span>{"+ $" + new Intl.NumberFormat("en-US").format(numberOfRooms * price)}</span>}
-                </div>
-                <div className="room-guests-per-room-container">
-                    <p>{1 in guestsPerRoom ? "Guests per Room:" : ""}</p>
-                    {Object.entries(guestsPerRoom).map((keyValuePair) => {
-                        const roomNumber = keyValuePair[0];
-                        const guestCount = keyValuePair[1];
-                        return (
-                            <div key={roomNumber} className="room-guests-per-current-room-container">
-                                <p>{roomNumber + ". Room: "}</p>
-                                <select onChange={(e) => setGuestsPerRoom(prevState => ({
-                                    ...prevState,
-                                    [roomNumber]: Number(e.target.value)
-                                }))}>
-                                    {_.range(1, capacity + 1).map(number => <option key={number}>{number}</option>)}
-                                </select>
-                                <span>{guestCount > 1 ? "+ $" + new Intl.NumberFormat("en-US").format((guestCount - 1) * price * priceChangePerPerson) : ""}</span>
-                            </div>
-                        );
-                    })}
-                </div>
-                {numberOfRooms === 0 ? ""
-                    :
-                    <div className="room-price-per-night-container">
-                        <p>{"Price per night: $" + new Intl.NumberFormat("en-US").format(pricePerNight)}</p>
-                        <p>{"For " + (numberOfNights + 1) + " days / " + numberOfNights + " night(s)"}</p>
-                        <p>{"From: " + format(startDate, "yyyy/MM/dd") + " - Until: " + format(endDate, "yyyy/MM/dd")}</p>
+        <>
+            {selectedRoom && (
+                <>
+                    <div className="overlay">
                     </div>
-                }
-                <div className="room-price-container">
-                    <p className="room-price">{"$" + new Intl.NumberFormat("en-US").format(fullPrice)}</p>
+                    <div className="popup">
+                        <IoCloseCircleOutline className="close-button" onClick={closePopup}/>
+                        <div className="popup-img-container">
+                            <img
+                                src={selectedRoom.image}
+                                alt={selectedRoom.name}
+                                className="room-image"
+                            />
+                        </div>
+                        <div className="popup-data-content">
+                            <p className="popup-room-name">{selectedRoom.name}</p>
+                            <p className="popup-room-price">Price:
+                                ${new Intl.NumberFormat("en-Us").format(selectedRoom.price)}</p>
+                            <p className="popup-room-capacity">Capacity: {selectedRoom.capacity}</p>
+                            <div className="services">
+                                <p>Services</p>
+                                <div className="popup-service-list">
+                                    <ul>
+                                        <li>Free Wi-fi</li>
+                                        <li>Smart TV</li>
+                                        <li>Air Conditioning</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Electronic Safe</li>
+                                        <li>Mini Refrigerator</li>
+                                        <li>Breakfast</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )}
+            <div className="room-container">
+                <div className="room-title-bar">
+                    <p className="room-name" onClick={() => handleRoomClick(room.id)}>{name}</p>
+                    <p className="room-capacity">{capacity > 1 ? "For maximum " + capacity + " people" : "For maximum " + capacity + " person"}</p>
+                </div>
+                <div className="room-image-container">
+                    <img className="room-image" src={image} alt={"Picture of " + name}/>
+                </div>
+                <div className="room-main">
+                    <div className="room-number-of-rooms-container">
+                        <p>{"Number of Rooms: "}</p>
+                        <select className="room-number-of-rooms-select"
+                                onChange={(e) => setNumberOfRooms(Number(e.target.value))}>
+                            {_.range(0, allOfThisType.length + 1).map(number => number > availableOfThisType.length
+                                ?
+                                <option key={number} disabled>{number}</option>
+                                :
+                                <option key={number}>{number}</option>)}
+                        </select>
+                        {numberOfRooms === 0 ? "" :
+                            <span>{"+ $" + new Intl.NumberFormat("en-US").format(numberOfRooms * price)}</span>}
+                    </div>
+                    <div className="room-guests-per-room-container">
+                        <p>{1 in guestsPerRoom ? "Guests per Room:" : ""}</p>
+                        {Object.entries(guestsPerRoom).map((keyValuePair) => {
+                            const roomNumber = keyValuePair[0];
+                            const guestCount = keyValuePair[1];
+                            return (
+                                <div key={roomNumber} className="room-guests-per-current-room-container">
+                                    <p>{roomNumber + ". Room: "}</p>
+                                    <select onChange={(e) => setGuestsPerRoom(prevState => ({
+                                        ...prevState,
+                                        [roomNumber]: Number(e.target.value)
+                                    }))}>
+                                        {_.range(1, capacity + 1).map(number => <option key={number}>{number}</option>)}
+                                    </select>
+                                    <span>{guestCount > 1 ? "+ $" + new Intl.NumberFormat("en-US").format((guestCount - 1) * price * priceChangePerPerson) : ""}</span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    {numberOfRooms === 0 ? ""
+                        :
+                        <div className="room-price-per-night-container">
+                            <p>{"Price per night: $" + new Intl.NumberFormat("en-US").format(pricePerNight)}</p>
+                            <p>{"For " + (numberOfNights + 1) + " days / " + numberOfNights + " night(s)"}</p>
+                            <p>{"From: " + format(startDate, "yyyy/MM/dd") + " - Until: " + format(endDate, "yyyy/MM/dd")}</p>
+                        </div>
+                    }
+                    <div className="room-price-container">
+                        <p className="room-price">{"$" + new Intl.NumberFormat("en-US").format(fullPrice)}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
