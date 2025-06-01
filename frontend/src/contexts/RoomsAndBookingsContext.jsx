@@ -35,6 +35,12 @@ export const RoomsAndBookingsContextProvider = ({children}) => {
         [selectedBookings]);
 
     useEffect(() => {
+        if (startDate >= endDate) {
+            setEndDate(addDays(startDate, 1));
+        }
+    }, [startDate, endDate]);
+
+    useEffect(() => {
         setSelectedBookings(prev => {
             const prevSelectedBookings = {...prev};
             const newSelectedBookings = {};
